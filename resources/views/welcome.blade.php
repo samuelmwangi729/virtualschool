@@ -38,7 +38,6 @@
                         <p>We provide revison papers to students and also act as teachers to the student.
                             We also help teacher to perform their daily daily tasks.
                          </p>
-                        <a href="#" class="btn_1">Read More</a>
                     </div>
                 </div>
                 <div class="col-sm-6 col-xl-3">
@@ -65,40 +64,8 @@
                         <div class="single_feature_part single_feature_part_2">
                             <span class="single_service_icon style_icon"><i class="ti-light-bulb"></i></span>
                             <h4>Job Oppurtunity</h4>
-                            <p>Set have great you male grasses yielding yielding first their to called deep
-                                abundantly Set have great you male</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- upcoming_event part start-->
-
-    <!-- learning part start-->
-    <section class="learning_part">
-        <div class="container">
-            <div class="row align-items-sm-center align-items-lg-stretch">
-                <div class="col-md-7 col-lg-7">
-                    <div class="learning_img">
-                        <img src="img/learning_img.png" alt="">
-                    </div>
-                </div>
-                <div class="col-md-5 col-lg-5">
-                    <div class="learning_member_text">
-                        <h5>About us</h5>
-                        <h2>Learning with Love
-                            and Laughter</h2>
-                        <p>Fifth saying upon divide divide rule for deep their female all hath brind Days and beast
-                            greater grass signs abundantly have greater also
-                            days years under brought moveth.</p>
-                        <ul>
-                            <li><span class="ti-pencil-alt"></span>Him lights given i heaven second yielding seas
-                                gathered wear</li>
-                            <li><span class="ti-ruler-pencil"></span>Fly female them whales fly them day deep given
-                                night.</li>
+                            <p>Contact Us to be part of the team</li>
                         </ul>
-                        <a href="#" class="btn_1">Read More</a>
                     </div>
                 </div>
             </div>
@@ -112,25 +79,25 @@
             <div class="row">
                 <div class="col-lg-3 col-sm-6">
                     <div class="single_member_counter">
-                        <span class="counter">1024</span>
+                        <span class="counter">75</span>
                         <h4>All Teachers</h4>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="single_member_counter">
-                        <span class="counter">960</span>
+                        <span class="counter">5000</span>
                         <h4> All Students</h4>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="single_member_counter">
-                        <span class="counter">1020</span>
+                        <span class="counter">1200</span>
                         <h4>Online Students</h4>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="single_member_counter">
-                        <span class="counter">820</span>
+                        <span class="counter">3800</span>
                         <h4>Ofline Students</h4>
                     </div>
                 </div>
@@ -145,24 +112,24 @@
                 <div class="col-md-6 col-lg-6">
                     <div class="learning_member_text">
                         <h5>Advance feature</h5>
-                        <h2>Our Advance Educator
-                            Learning System</h2>
-                        <p>Fifth saying upon divide divide rule for deep their female all hath brind mid Days
-                            and beast greater grass signs abundantly have greater also use over face earth
-                            days years under brought moveth she star</p>
+                        <h2>Our Advanced Examination
+                             System</h2>
+                        <p>With this, we provide fast and efficient ways of delivering the results to the teacher together with the Institution
+                            We will always be there to help.
+                        </p>
                         <div class="row">
                             <div class="col-sm-6 col-md-12 col-lg-6">
                                 <div class="learning_member_text_iner">
                                     <span class="ti-pencil-alt"></span>
                                     <h4>Learn Anywhere</h4>
-                                    <p>There earth face earth behold she star so made void two given and also our</p>
+                                    <p>Our resources are available and accessible  within the globe.</p>
                                 </div>
                             </div>
                             <div class="col-sm-6 col-md-12 col-lg-6">
                                 <div class="learning_member_text_iner">
                                     <span class="ti-stamp"></span>
                                     <h4>Expert Teacher</h4>
-                                    <p>There earth face earth behold she star so made void two given and also our</p>
+                                    <p>We have specialists who will always help to analyse and deliver the results to you.</p>
                                 </div>
                             </div>
                         </div>
@@ -183,16 +150,18 @@
             <div class="row justify-content-between">
                 <div class="col-sm-6 col-md-4 col-xl-3">
                     <div class="single-footer-widget footer_1">
-                        <a href="index.html"> <img src="img/logo.png" alt=""> </a>
-                        <p>But when shot real her. Chamber her one visite removal six
-                            sending himself boys scot exquisite existend an </p>
-                        <p>But when shot real her hamber her </p>
+                        <a class="navbar-brand" style="color:#f04d0c;font-weight:bold" href="{{route('index')}}"> 
+                            {{-- <img src="img/logo.png" alt="logo"> --}}
+                            {{ config('app.name') }}
+                         </a>
+                        <p>We provide online solutions to testing and resources to all educators who are ready. </p>
+                        <p>At an affordable rate </p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-4 col-xl-4">
                     <div class="single-footer-widget footer_2">
                         <h4>Newsletter</h4>
-                        <p>Stay updated with our latest trends Seed heaven so said place winged over given forth fruit.
+                        <p>Stay Updated with the latest articles and resources uploaded. Subscribe and get weekly reports
                         </p>
                         <form action="#">
                             <div class="form-group">
@@ -218,9 +187,9 @@
                     <div class="single-footer-widget footer_2">
                         <h4>Contact us</h4>
                         <div class="contact_info">
-                            <p><span> Address :</span> Hath of it fly signs bear be one blessed after </p>
-                            <p><span> Phone :</span> +2 36 265 (8060)</p>
-                            <p><span> Email : </span>info@colorlib.com </p>
+                            <p><span> Address :</span> Times Tower off Jogoo road </p>
+                            <p><span> Phone :</span> +254 (07) 04-922-042</p>
+                            <p><span> Email : </span>samuelmwangi729@gmail.com </p>
                         </div>
                     </div>
                 </div>
