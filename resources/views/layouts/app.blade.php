@@ -35,6 +35,7 @@
 <link rel="stylesheet" href="{{asset('css/slick.css')}}">
     <!-- style CSS -->
 <link rel="stylesheet" href="{{asset('css/style.css')}}">
+<script data-ad-client="ca-pub-6177716716878978" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 <body>
     <div id="app" style="margin-top:-20px">
