@@ -167,7 +167,7 @@
                             <div class="form-group">
                                 <div class="input-group mb-3">
                                     <input type="text" class="form-control" placeholder='Enter email address'
-                                        onfocus="this.placeholder = ''"
+                                        onfocus="this.placeholder = 'hehe'"
                                         onblur="this.placeholder = 'Enter email address'">
                                     <div class="input-group-append">
                                         <button class="btn btn_1" type="button"><i class="ti-angle-right"></i></button>
