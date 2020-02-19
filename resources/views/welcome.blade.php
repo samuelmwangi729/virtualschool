@@ -18,8 +18,8 @@
                             <p>Shape the future of your child with our services. We provide revision
                                 papers at a low and affordable rate. <br>Get Started as a Student or register your institution
                             </p>
-                            <a href="#" class="btn_1">For Student </a>
-                            <a href="#" class="btn_2">For Institution </a>
+                        <a href="{{route('register')}}" class="btn_1">For Student </a>
+                            <a href="{{route('institution')}}" class="btn_2">For Institution </a>
                         </div>
                     </div>
                 </div>
