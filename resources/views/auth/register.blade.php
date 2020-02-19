@@ -11,6 +11,9 @@
                  </a></div>
 
                 <div class="card-body">
+                   @if($errors->count())
+                   {{ $errors }}
+                   @endif
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
@@ -19,7 +22,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -34,13 +37,13 @@
                             <div class="col">
                                 <div class="col">           
                                     <input type = "radio"
-                                           name = "male"
+                                           name = "Gender"
                                            id = "male"
                                            value = "male"
                                            checked = "checked" />
                                     <label for = "male">Male</label>
                                     <input type = "radio"
-                                           name = "female"
+                                           name = "Gender"
                                            id = "female"
                                            value = "female" />
                                     <label for = "female">Female</label>
@@ -67,7 +70,7 @@
                             <label for="name" class="col-md-12 col-form-label text-md-right">{{ __('Phone Number/Email') }}</label>
 
                             <div class="col">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="uname" placeholder="Enter the phone Number or Email" required autocomplete="name" autofocus>
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="email" placeholder="Enter the phone Number or Email" required autocomplete="name" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -95,7 +98,7 @@
                              <label for="name" class="col-md-6 col-form-label text-md-right">{{ __('Unique Identifier') }}</label>
  
                              <div class="col">
-                                 <input id="name" type="text" readonly class="form-control @error('name') is-invalid @enderror" name="name" value="{{ Str::random(6)}}" required autocomplete="name" autofocus>
+                                 <input id="name" type="text" readonly class="form-control @error('name') is-invalid @enderror" name="uid" value="{{ Str::random(6)}}" required autocomplete="name" autofocus>
  
                                  @error('name')
                                      <span class="invalid-feedback" role="alert">
@@ -111,13 +114,13 @@
  
                              <div class="col">           
                                 <input type = "radio"
-                                       name = "secondary"
+                                       name = "level"
                                        id = "secondary"
                                        value = "secondary"
                                        checked = "checked" />
                                 <label for = "Secondary">Secondary School</label>
                                 <input type = "radio"
-                                       name = "Primary"
+                                       name = "level"
                                        id = "primary"
                                        value = "primary" />
                                 <label for = "Primary">Primary School</label>
