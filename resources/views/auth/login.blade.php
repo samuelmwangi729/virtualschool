@@ -1,18 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container" style="margin-top:60px">
+<div class="container" style="margin-top:80px">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+                <div class="card-header"><a class="navbar-brand" style="color:#f04d0c;font-weight:bold" href="{{route('index')}}"> 
+                    {{-- <img src="img/logo.png" alt="logo"> --}}
+                    <span style="color:black !important">Login to</span> {{ config('app.name') }}
+                 </a></div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address/Phone Number ') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -45,7 +48,7 @@
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                     <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
+                                        &nbsp;&nbsp;{{ __('Remember Me') }}
                                     </label>
                                 </div>
                             </div>

@@ -5,7 +5,8 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header"><span style="font-size:20px;font-weight:bold">{{ __('Register') }} to </span><a class="navbar-brand" style="color:#f04d0c;font-weight:bold" href="{{route('index')}}"> 
+                <div class="card-header"><span style="font-size:20px;font-weight:bold">{{ __('Register') }} to </span>
+                <a class="navbar-brand" style="color:#f04d0c;font-weight:bold" href="{{route('index')}}"> 
                     {{-- <img src="img/logo.png" alt="logo"> --}}
                     {{ config('app.name') }}
                  </a></div>
