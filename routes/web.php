@@ -15,5 +15,5 @@ Route::get('/', function () {
     return view('welcome');
 })->name('index');
 Auth::routes();
-Route::post('/register/post', 'RegisterController@store')->name('regStore');
+Route::get('/Institution/Register', 'RegisterController@index')->name('institution');
 Route::get('/home', 'HomeController@index')->name('home');

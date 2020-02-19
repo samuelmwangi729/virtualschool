@@ -23,6 +23,7 @@ class User extends Authenticatable
         'dob',
         'uid',
         'level',
+        'isInd',
         'schoolName',
     ];
 

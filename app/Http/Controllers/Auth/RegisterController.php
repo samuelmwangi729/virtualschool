@@ -79,8 +79,10 @@ class RegisterController extends Controller
             'dob' => $data['dob'],
             'uid' => $data['uid'],
             'level' => $data['level'],
+            'isInd'=>$data['isInd'],
             'schoolName' => $data['schoolName'],
             'password' => Hash::make($data['password']),
         ]);
+        
     }
 }
