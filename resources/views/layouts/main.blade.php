@@ -32,7 +32,7 @@
                                 <li><!-- start message -->
                                     <a href="#">
                                         <div class="pull-left">
-                                            <img src="img/avatar3.png" class="img-circle" alt="User Image"/>
+                                        <img src="{{asset('img/avatar3.png')}}" class="img-circle" alt="User Image"/>
                                         </div>
                                         <h4>
                                             Support Team
@@ -219,7 +219,7 @@
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header bg-light-blue">
-                            <img src="img/avatar3.png" class="img-circle" alt="User Image" />
+                        <img src="{{asset('img/avatar3.png')}}" class="img-circle" alt="User Image" />
                             <p>
                                 @if(Auth::user()->isInd == 0)
                                 {{Auth::user()->schoolName}}
@@ -273,7 +273,7 @@
           <!-- Sidebar user panel -->
           <div class="user-panel">
               <div class="pull-left image">
-                  <img src="img/avatar3.png" class="img-circle" alt="User Image" />
+              <img src="{{asset('img/avatar3.png')}}" class="img-circle" alt="User Image" />
               </div>
               <div class="pull-left info">
               <p>Hello, {{Auth::user()->uid}}</p>
@@ -297,9 +297,9 @@
                       <i class="fa fa-angle-left pull-right"></i>
                   </a>
                   <ul class="treeview-menu">
-                      <li><a href="pages/charts/flot.html"><i class="fa fa-plus"></i> Add Subject</a></li>
-                      <li><a href="pages/charts/flot.html"><i class="fa fa-times-circle"></i> Manage Subjects</a></li>
-                      <li><a href="pages/charts/flot.html"><i class="fa fa-eye"></i> View Subjects</a></li>
+                  <li><a href="{{route('subject.create')}}"><i class="fa fa-plus"></i> Add Subject</a></li>
+                  <li><a href="/Subjects/Manage"><i class="fa fa-times-circle"></i> Manage Subjects</a></li>
+                      <li><a href="{{route('subject.all')}}"><i class="fa fa-eye"></i> View Subjects</a></li>
                   </ul>
               </li>
               <li class="treeview">
@@ -309,9 +309,21 @@
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="pages/charts/flot.html"><i class="fa fa-plus"></i> Add Class</a></li>
-                    <li><a href="pages/charts/flot.html"><i class="fa fa-times-circle"></i> Manage Classes</a></li>
-                    <li><a href="pages/charts/flot.html"><i class="fa fa-eye"></i> View Classes</a></li>
+                <li><a href="{{route('classes.create')}}"><i class="fa fa-plus"></i> Add Class</a></li>
+                <li><a href="{{route('classes.home')}}"><i class="fa fa-times-circle"></i> Manage Classes</a></li>
+                <li><a href="{{route('classes.all')}}"><i class="fa fa-eye"></i> View Classes</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-check-circle"></i>
+                    <span>Topics</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                <li><a href="{{route('topics.create')}}"><i class="fa fa-plus"></i> Add Topic</a></li>
+                <li><a href="{{route('topics.home')}}"><i class="fa fa-times-circle"></i> Manage Topics</a></li>
+                <li><a href="{{route('topics.all')}}"><i class="fa fa-eye"></i> View Topics</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -321,10 +333,10 @@
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="pages/charts/flot.html"><i class="fa fa-plus"></i> Add Questions</a></li>
-                    <li><a href="pages/charts/flot.html"><i class="fa fa-times-circle"></i> Manage Questions</a></li>
-                    <li><a href="pages/charts/flot.html"><i class="fa fa-eye"></i> View Questions</a></li>
-                    <li><a href="pages/charts/flot.html"><i class="fa fa-print"></i> Print Questions</a></li>
+                    <li><a href="{{ route('questions.create') }}"><i class="fa fa-plus"></i> Add Questions</a></li>
+                    <li><a href="{{ route('questions.index') }}"><i class="fa fa-times-circle"></i> Manage Questions</a></li>
+                <li><a href="{{route('questions.home')}}"><i class="fa fa-eye"></i> View Questions</a></li>
+                    <li><a href="{{route('questions.home')}}" onclick="event.preventDefault();alert('Print Feature yet to be added')"><i class="fa fa-print"></i> Print Questions</a></li>
                 </ul>
             </li>
               <li class="treeview">
@@ -334,8 +346,8 @@
                       <i class="fa fa-angle-left pull-right"></i>
                   </a>
                   <ul class="treeview-menu">
-                      <li><a href="pages/UI/general.html"><i class="fa fa-plus"></i> Upload File</a></li>
-                      <li><a href="pages/UI/icons.html"><i class="fa fa-eye"></i> Uploaded Files</a></li>
+                  <li><a href="{{route('files.all')}}"><i class="fa fa-plus"></i> Upload Answer Sheet</a></li>
+                      <li><a href="pages/UI/icons.html"><i class="fa fa-eye"></i> Uploaded Answer Sheets</a></li>
                   </ul>
               </li>
               <li class="treeview">
