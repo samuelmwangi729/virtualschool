@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Files extends Model
 {
     public $fillable=[
-        'file'
+        'fileName','uploadedBy','BelongsTo','Marked','status'
     ];
 }

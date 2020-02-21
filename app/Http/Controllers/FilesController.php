@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Session;
-
+use App\Files;
+use Auth;
 class FilesController extends Controller
 {
     /**
@@ -33,6 +34,7 @@ class FilesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
         $this->validate($request,[
@@ -42,13 +44,20 @@ class FilesController extends Controller
         $fileMimeType=$file->getmimeType();
         $extension=explode('/',$fileMimeType);
         $extensions=array('pdf','doc','docx');
+        $newFileName=time().$file->getClientOriginalName();
         if(in_array($extension[1],$extensions)){
-            dd(time().$file->getClientOriginalName());
+            $file->move('uploads/',$newFileName);
+            Files::create([
+                'fileName'=>$newFileName,
+                'uploadedBy'=>Auth::user()->name,
+                'BelongsTo'=>Auth::user()->name.','.Auth::user()->schoolName,
+            ]);
+            Session::flash('success','Answer Sheet successfully Uploaded');
+            return redirect()->back();
         }else{
             Session::flash('error','Unknown File extension: Allowed: .pdf,.doc,.docx');
             return redirect()->back();
         }
-        dd($final[1]);
     }
 
     /**

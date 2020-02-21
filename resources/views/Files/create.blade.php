@@ -20,6 +20,12 @@
         {{ Session::get('error') }}
     </div>
     @endif
+    @if(Session::has('success'))
+    <div class="alert alert-success">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+        {{ Session::get('success') }}
+    </div>
+    @endif
     <form method="POST" enctype="multipart/form-data" action="{{ route('files.store') }}" class="form-inline">
         @csrf
        <div class="panel panel-default">
