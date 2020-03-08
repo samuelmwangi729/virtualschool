@@ -70,6 +70,16 @@ class FilesController extends Controller
     {
         //
     }
+    public function all(){
+        //this will show all the files uploaded
+        $files=Files::all();
+        // dd(response()->json($files, 200));
+        if(is_null($files)){
+            return redirect()->back();
+            Session::flash('error','No Files Uploaded');
+        }
+        return view('Files.view')->with('files',$files);
+    }
 
     /**
      * Show the form for editing the specified resource.

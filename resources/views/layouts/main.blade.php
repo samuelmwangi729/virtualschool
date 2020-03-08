@@ -235,7 +235,7 @@
                             </p>
                         </li>
                         <!-- Menu Body -->
-                        <li class="user-body">
+                        {{-- <li class="user-body">
                             <div class="col-xs-4 text-center">
                                 <a href="#">Followers</a>
                             </div>
@@ -245,7 +245,7 @@
                             <div class="col-xs-4 text-center">
                                 <a href="#">Friends</a>
                             </div>
-                        </li>
+                        </li> --}}
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
@@ -347,7 +347,7 @@
                   </a>
                   <ul class="treeview-menu">
                   <li><a href="{{route('files.all')}}"><i class="fa fa-plus"></i> Upload Answer Sheet</a></li>
-                      <li><a href="pages/UI/icons.html"><i class="fa fa-eye"></i> Uploaded Answer Sheets</a></li>
+                      <li><a href="{{route('files.view')}}"><i class="fa fa-eye"></i> Uploaded Answer Sheets</a></li>
                   </ul>
               </li>
               <li class="treeview">
@@ -356,9 +356,9 @@
                       <i class="fa fa-angle-left pull-right"></i>
                   </a>
                   <ul class="treeview-menu">
-                      <li><a href="pages/forms/general.html"><i class="fa fa-plus-circle"></i> Add Students</a></li>
-                      <li><a href="pages/forms/advanced.html"><i class="fa fa-eye"></i> Manage Students</a></li>
-                      <li><a href="pages/forms/editors.html"><i class="fa fa-print"></i> Print Students List</a></li>
+                  <li><a href="{{route('students.add')}}"><i class="fa fa-plus-circle"></i> Add Students</a></li>
+                  <li><a href="{{route('students.all')}}"><i class="fa fa-eye"></i> Manage Students</a></li>
+                      <li><a href="{{route('students.print')}}"><i class="fa fa-print"></i> Print Students List</a></li>
                   </ul>
               </li>
             <li class="treeview">
