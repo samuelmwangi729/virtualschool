@@ -231,7 +231,7 @@
                                 @else
                                 Institution
                                 @endif
-                                <small>Member since {{ (Auth::user()->created_at)->toFormatteddateString() }}</small>
+                                <small>Member since:  {{ (Auth::user()->created_at)->toFormatteddateString() }}</small>
                             </p>
                         </li>
                         <!-- Menu Body -->
@@ -380,6 +380,28 @@
             </a>
             <ul class="treeview-menu">
                 <li><a href="{{route('marked.post')}}" target="_parent"><i class="fa fa-check-circle"></i> Upload MarkedSheets</a></li>
+                {{-- <li><a href="pages/tables/data.html"><i class="fa fa-angle-double-right"></i>Print Results</a></li> --}}
+            </ul>
+            </li>
+            <li class="treeview">
+            <a href="#">
+                <i class="fa fa-money"></i> <span>Pricing</span>
+                <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="{{route('prices.all')}}" target="_parent"><i class="fa fa-plus-circle"></i>Add Pricing</a></li>
+                <li><a href="{{route('prices.view')}}" target="_parent"><i class="fa fa-edit"></i>View Pricing</a></li>
+                {{-- <li><a href="pages/tables/data.html"><i class="fa fa-angle-double-right"></i>Print Results</a></li> --}}
+            </ul>
+            </li>
+            <li class="treeview">
+            <a href="#">
+                <i class="fa fa-credit-card"></i> <span>Payments</span>
+                <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="{{route('payments.index')}}" target="_parent"><i class="fa fa-plus-circle"></i>Add Payments</a></li>
+                <li><a href="{{route('payments.all')}}" target="_parent"><i class="fa fa-edit"></i>Payment Statement</a></li>
                 {{-- <li><a href="pages/tables/data.html"><i class="fa fa-angle-double-right"></i>Print Results</a></li> --}}
             </ul>
             </li>

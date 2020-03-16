@@ -43,6 +43,7 @@ class StudentsController extends Controller
         $students=Student::where('SchoolAffiliate',Auth::user()->schoolName)->get();
         $html= \View::make('pdf')->with('students',$students);
         $html=$html->render();
+        // $mpdf->Image('/img/logo.jpg',90,210);
         $mpdf->SetWatermarkText(config('app.name'));
         $mpdf->watermark_font = 'DejaVuSansCondensed';
         $mpdf->SetHeader('VirtualSchool  {PAGENO}');

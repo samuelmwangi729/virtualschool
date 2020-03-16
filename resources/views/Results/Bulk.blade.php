@@ -48,6 +48,10 @@
 </div>
 </div>
 <div class="col-sm-3">
+    <label for="code" class="label-control">Payment TransactionCode</label>
+    <input type="text" class="form-control" name="TransactionCode">
+</div>
+<div class="col-sm-3">
 <div class="form-group">
 <button type="submit" class="btn btn-success pull-left" style="margin-top:20px">Upload Files</button>
 </div>

@@ -28,7 +28,7 @@
 </tr>
 @endforeach
 </table>
-<button type="submit" class="btn btn-success">Upload Files</button>
+<button type="submit" class="btn btn-success disabled">Upload Files</button>
 </form>
 </div>
 </div>

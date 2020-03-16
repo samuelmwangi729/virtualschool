@@ -62,3 +62,12 @@ Route::get('/Answersheet/Fill', 'QuestionsController@answersheet')->name('answer
 Route::get('/Markedsheet/Post', 'ResultsController@marked')->name('marked.post');
 Route::get('/Markedsheet/Post/Single', 'ResultsController@smarked')->name('marked.single');
 Route::post('/Answersheet/Print', 'QuestionsController@answers')->name('answers.print');
+Route::get('/Prices/Add', 'PriceController@index')->name('prices.all');
+Route::post('/Prices/Store', 'PriceController@store')->name('prices.store');
+Route::get('/Prices/View', 'PriceController@show')->name('prices.view');
+Route::get('/Prices/Edit/{id}', 'PriceController@edit')->name('price.edit');
+Route::post('/Prices/Update', 'PriceController@update')->name('prices.update');
+Route::get('/Payments/Index', 'PaymentsController@index')->name('payments.index');
+Route::post('/Payments/Store', 'PaymentsController@store')->name('payments.store');
+Route::get('/Payments/Home/All', 'PaymentsController@showAll')->name('payments.all');
+Route::get('/Payments/Print', 'PaymentsController@Print')->name('payments.print');

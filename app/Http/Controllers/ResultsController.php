@@ -10,6 +10,8 @@ use App\User;
 use App\Files;
 use App\Subject;
 use App\Marked;
+use App\Price;
+use App\Payment;
 class ResultsController extends Controller
 {
     /**
@@ -79,6 +81,7 @@ class ResultsController extends Controller
         $this->validate($request,[
             'school'=>'required',
             'subject'=>'required',
+            'TransactionCode'=>'required'
         ]);
         $filesArray=[];
         $files=$request->file('files');
@@ -93,6 +96,18 @@ class ResultsController extends Controller
         if(count($filesArray) != count($students)){
             Session::flash('error','Upload exactly '.count($students).' Copies of Answersheets');
             return redirect()->back();
+        }
+        //before upload, check if the amount paid is enough to the number of files uploaded
+        $PaymentDetails=Payment::where('TransactionId',$request->TransactionCode)->take(1)->first();
+        $Prices=Price::where('PaperType','Bulk Papers')->first();
+        if( count($filesArray) == count($students)){
+            //Amount to be payed is equals to the number of copies uploaded = to number of students
+            // dd($Prices->Amount * count($students));
+            $AmountNeeded=$Prices->Amount  * count($students);
+            if($PaymentDetails->Amount !=  $AmountNeeded){
+                Session::flash('error','Please Pay the Exact Amount for your Paper to be Uploaded, Needed Ksh.'. $AmountNeeded);
+                return redirect()->back();
+            }
         }
         //upload the files with the schools name on them 
         if(count($filesArray)>0){

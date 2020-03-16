@@ -72,7 +72,41 @@
         </div>
     </section>
     <!-- learning part end-->
-
+    <div class="container-fluid">
+    <section class="feature_part">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-xl-4 align-self-center">
+                    <div class="single_feature_text ">
+                        <h2>{{ config('app.name') }} <br> Pricing</h2>
+                        <p>With our cheap and affordable rates, we are here to help.
+                         </p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-4">
+                    <div class="single_feature">
+                        <div class="single_feature_part">
+                            <span class="single_feature_icon"><i class="fa fa-user"></i></span>
+                            <h4>Single Paper Marking</h4>
+                            <h4>Ksh .{{ App\Price::where('paperType','Single Paper')->get()->first()->Amount }} Per Paper </h4>
+                            <p>This is the price mostly charged by marking a single paper uploaded to our portal</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-4">
+                    <div class="single_feature">
+                        <div class="single_feature_part">
+                            <span class="single_feature_icon"><i class="fa fa-users"></i></span>
+                            <h4>Bulk Papers Marking</h4>
+                            <h4>Ksh .{{ App\Price::where('paperType','Bulk Papers')->get()->first()->Amount }} Per Paper </h4>
+                            <p>With the education Institutions using our site, we offer a discount to them by reducing the price slightly</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
     <!-- member_counter counter start -->
     <section class="member_counter">
         <div class="container">
@@ -106,7 +140,7 @@
     </section>
     <!-- member_counter counter end -->
     <!-- learning part start-->
-    <section class="advance_feature learning_part">
+    <section class="advance_feature learning_part" id="about">
         <div class="container">
             <div class="row align-items-sm-center align-items-xl-stretch">
                 <div class="col-md-6 col-lg-6">
@@ -183,7 +217,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-sm-6 col-md-4">
+                <div class="col-xl-3 col-sm-6 col-md-4" id="contact">
                     <div class="single-footer-widget footer_2">
                         <h4>Contact us</h4>
                         <div class="contact_info">
@@ -194,7 +228,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
         <div class="container-fluid">
             <div class="row">

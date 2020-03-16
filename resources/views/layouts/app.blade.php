@@ -18,7 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="icon" href="img/favicon.png">
+    <link rel="icon" href="img/logo/logo.png">
     <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <!-- animate CSS -->
@@ -33,61 +33,22 @@
 <link rel="stylesheet" href="{{asset('css/magnific-popup.css')}}">
     <!-- swiper CSS -->
 <link rel="stylesheet" href="{{asset('css/slick.css')}}">
+<link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- style CSS -->
 <link rel="stylesheet" href="{{asset('css/style.css')}}">
 <script data-ad-client="ca-pub-6177716716878978" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 <body>
     <div id="app" style="margin-top:-20px">
-        {{-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="index.html"> <img src="img/logo.png" alt="logo"> </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                        <li class="nav-item active">
-                            <a class="nav-link" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html">About</a>
-                        </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav> --}}
-          <!--::header part start::-->
     <header class="main_menu home_menu" >
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-12">
                     <nav class="navbar navbar-expand-lg navbar-light">
                     <a class="navbar-brand" style="color:#f04d0c;font-weight:bold" href="{{route('index')}}"> 
-                            {{-- <img src="img/logo.png" alt="logo"> --}}
-                            {{ config('app.name') }}
+                            <img src="img/logo/logo.png" alt="logo" width="100px" height="100px">
                          </a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        <button class="navbar-toggler pull-right" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
@@ -97,13 +58,13 @@
                             id="navbarSupportedContent">
                             <ul class="navbar-nav align-items-center">
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="{{route('index')}}">Home</a>
+                                    <a class="nav-link" href="{{route('index')}}"><i class="fa fa-home" style="font-size:20px;color:red"></i></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="about.html">About</a>
+                                    <a class="nav-link" href="#about">About</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="cource.html">Services</a>
+                                    <a class="nav-link" href="http://127.0.0.1:8000/#about">Services</a>
                                 </li>
                                 {{-- <li class="nav-item">
                                     <a class="nav-link" href="blog.html">Blog</a>
@@ -128,7 +89,7 @@
                                     </div>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="contact.html">Contact</a>
+                                    <a class="nav-link" href="#contact">Contact</a>
                                 </li>
                                 @if(Auth::check())
                                 <li class="nav-item">

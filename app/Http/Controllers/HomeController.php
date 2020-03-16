@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Classes;
+use App\Files;
+use App\Question;
+use App\Student;
+use App\Payment;
+use App\Marked;
 
 class HomeController extends Controller
 {
@@ -23,6 +29,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $amount=Payment::all();
+        $sum=0;
+        foreach($amount as $amt){
+            $sum=$sum+$amt->Amount;
+        }
+        return view('home')
+        ->with('files',Files::all()->count())
+        ->with('students',Student::all()->count())
+        ->with('amount',$sum)
+        ->with('Marked',Marked::all()->count());
     }
 }

@@ -9,10 +9,10 @@
         <div class="small-box bg-aqua">
             <div class="inner">
                 <h3>
-                    150
+                    {{ $files }}
                 </h3>
                 <p>
-                    Documents
+                    Documents Uploaded
                 </p>
             </div>
             <div class="icon">
@@ -28,10 +28,10 @@
         <div class="small-box bg-green">
             <div class="inner">
                 <h3>
-                    53<sup style="font-size: 20px">%</sup>
+                    {{ $Marked }}
                 </h3>
                 <p>
-                    Overall Mean Score
+                    Marked Sheets
                 </p>
             </div>
             <div class="icon">
@@ -47,10 +47,10 @@
         <div class="small-box bg-yellow">
             <div class="inner">
                 <h3>
-                    44
+                    {{ $students }}
                 </h3>
                 <p>
-                    Students
+                    Students Under Institutions
                 </p>
             </div>
             <div class="icon">
@@ -66,10 +66,10 @@
         <div class="small-box bg-red">
             <div class="inner">
                 <h3>
-                    6500
+                   {{ $amount }}
                 </h3>
                 <p>
-                    Pending Amount
+                    Paid Amount
                 </p>
             </div>
             <div class="icon">

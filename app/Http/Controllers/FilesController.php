@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use Session;
 use App\Files;
 use Auth;
+use App\Payment;
 use App\Marked;
+use App\Price;
 class FilesController extends Controller
 {
     /**
@@ -84,6 +86,13 @@ class FilesController extends Controller
 
     public function store(Request $request)
     {
+        $PaymentDetails=Payment::where('TransactionId',$request->TransactionCode)->take(1)->first();
+        $Prices=Price::where('PaperType','Single Paper')->first();
+        $AmountNeeded=$Prices->Amount;
+        if($PaymentDetails->Amount !=  $AmountNeeded){
+            Session::flash('error','Please Pay the Exact Amount for your Paper to be Uploaded,Needed Ksh.'. $AmountNeeded);
+            return redirect()->back();
+        }
         $this->validate($request,[
             'file'=>'required',
             'subject'=>'required'
