@@ -13,7 +13,7 @@
             @foreach($files as $file)
             <tr>
                 <td>
-                    {{ $file->fileName }}
+                     <a href="{{asset('/uploads/'.$file->fileName)}}">Download</a>
                 </td>
                 <td>
                     {{ $file->uploadedBy }}

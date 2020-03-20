@@ -34,7 +34,7 @@
               <div class="col-sm-6">
                 <div class="form-group">
                     <label for="Student Name" class="label-control">Student Unique Identifier</label>
-                <input type="text" class="form-control" name="UniqueIdentifier" placeholder="Enter the Name" value="{{Str::random(6)}}" readonly autofocus/>
+                <input type="text" class="form-control" name="UniqueIdentifier" placeholder="Enter the Name" value="{{Str::random(10)}}" readonly autofocus/>
                 </div>
                 <div class="form-group">
                     <label for="Student Name" class="label-control">Student Passport</label>

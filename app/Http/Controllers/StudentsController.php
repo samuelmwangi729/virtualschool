@@ -34,20 +34,23 @@ class StudentsController extends Controller
         $fileName="Students.pdf";
         $mpdf=new \Mpdf\Mpdf([
             'margin_left'=>10,
-            'margin_top'=>10,
+            'margin_top'=>21,
             'margin_right'=>10,
-            'margin_bottom'=>10,
+            'margin_bottom'=>50,
             'margin_header'=>10,
             'margin_footer'=>10,
         ]);
-        $students=Student::get();
+        $students=Student::where('SchoolAffiliate',Auth::user()->schoolName)->get();
         $html= \View::make('pdf')->with('students',$students);
         $html=$html->render();
         $mpdf->SetWatermarkText(config('app.name'));
         $mpdf->watermark_font = 'DejaVuSansCondensed';
-        // $mpdf->SetHeader('{PAGENO}');
+        $mpdf->SetHeader('VirtualSchool  {PAGENO}');
         // $mpdf->SetFooter('{PAGENO}');
-        $mpdf->WriteHtml($html);
+        // $stylesheet=file_get_contents(url('/css/bootstrap.css'));
+        // $mpdf->WriteHTML($stylesheet,1);
+
+        $mpdf->WriteHTML($html);
         $mpdf->Output($fileName,'I');
     }
 

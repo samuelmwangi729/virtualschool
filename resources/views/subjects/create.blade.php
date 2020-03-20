@@ -32,7 +32,7 @@
                 </div>
                 <div class="col-sm-4">
                     <label for="subjectName" class="label-control">Subject Code</label>
-                    <input type="text" class="form-control" placeholder="Enter Subject Code" name="subjectCode">
+                    <input type="number" class="form-control" placeholder="Enter Subject Code" name="subjectCode">
                 </div>
                 <div class="col-sm-4">
                     <label for="subjectName" class="label-control">Subject Name</label>

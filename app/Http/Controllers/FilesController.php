@@ -17,9 +17,27 @@ class FilesController extends Controller
     {
         return view('Files.all');
     }
-
+   
+    public function file(Request $request){
+        $this->validate($request,[
+            'level'=>'required',
+            'questionPaper'=>'required',
+            'topic'=>'required'
+        ]);
+        // $file=$request->get('questionPaper');
+        // $newFileName=$file->getClientOriginalName();
+        // $file->move('uploads/',$newFileName);
+        // Files::create([
+        //     'fileName'=>$newFileName,
+        //     'uploadedBy'=>Auth::user()->name,
+        //     'BelongsTo'=>Auth::user()->name.','.Auth::user()->schoolName,
+        // ]);
+        // Session::flash('success','Answer Sheet successfully Uploaded');
+        // return redirect()->back();
+        dd($request->all());
+    }
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new resource.                                                                                                                           
      *
      * @return \Illuminate\Http\Response
      */
@@ -38,12 +56,13 @@ class FilesController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'file'=>'required'
+            'file'=>'required',
+            'subject'=>'required'
         ]);
         $file=$request->file;
         $fileMimeType=$file->getmimeType();
         $extension=explode('/',$fileMimeType);
-        $extensions=array('pdf','doc','docx');
+        $extensions=array('pdf');
         $newFileName=time().$file->getClientOriginalName();
         if(in_array($extension[1],$extensions)){
             $file->move('uploads/',$newFileName);
@@ -51,11 +70,12 @@ class FilesController extends Controller
                 'fileName'=>$newFileName,
                 'uploadedBy'=>Auth::user()->name,
                 'BelongsTo'=>Auth::user()->name.','.Auth::user()->schoolName,
+                'Subject'=>$request->subject
             ]);
             Session::flash('success','Answer Sheet successfully Uploaded');
             return redirect()->back();
         }else{
-            Session::flash('error','Unknown File extension: Allowed: .pdf,.doc,.docx');
+            Session::flash('error','Unknown File extension: Allowed: .pdf Only');
             return redirect()->back();
         }
     }

@@ -17,6 +17,7 @@ class CreateQuestionsTable extends Migration
             $table->bigIncrements('id');
             $table->string('level');
             $table->string('class');
+            $table->string('subject');
             $table->string('question');
             $table->string('topic');
             $table->integer('marks');

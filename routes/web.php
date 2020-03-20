@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 })->name('index');
 Auth::routes();
+Route::get('/fileQuestion',[
+    'uses'=>'QuestionsController@file',
+    'as'=>'files.file'
+]);
 Route::get('/Institution/Register', 'RegisterController@index')->name('institution');
 Route::get('/Subjects/Manage', 'SubjectsController@index')->name('subject.home');
 Route::get('/Classes/Manage', 'ClassesController@index')->name('classes.home');
@@ -36,8 +40,15 @@ Route::get('/Files/All', 'FilesController@index')->name('files.all');
 Route::get('/Files/Home', 'FilesController@all')->name('files.view');
 Route::get('/Files/Upload', 'FilesController@create')->name('files.upload');
 Route::post('/Files/Store', 'FilesController@store')->name('files.store');
+Route::post('/Files/Quiz', 'FilesController@file')->name('files.file');
 Route::post('/Topics/Store', 'TopicsController@store')->name('topics.store');
 Route::get('/Students/Add', 'StudentsController@create')->name('students.add');
 Route::post('/Students/Store', 'StudentsController@store')->name('students.store');
 Route::get('/Students/All', 'StudentsController@index')->name('students.all');
 Route::get('/Students/Print', 'StudentsController@print')->name('students.print');
+Route::get('/Students/MarkSheet', 'ResultsController@index')->name('students.marksheet');
+Route::get('/Students/Results/Post', 'ResultsController@create')->name('marks.post');
+Route::get('/Answers/Bulk/Upload', 'ResultsController@bulk')->name('bulk.post');
+Route::post('/Answers/Bulk/Store', 'ResultsController@store')->name('bulk.store');
+Route::get('/Questions/Select/', 'QuestionsController@view')->name('questions.print');
+Route::post('/Questions/View/', 'QuestionsController@print')->name('questions.select');

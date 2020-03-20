@@ -336,7 +336,7 @@
                     <li><a href="{{ route('questions.create') }}"><i class="fa fa-plus"></i> Add Questions</a></li>
                     <li><a href="{{ route('questions.index') }}"><i class="fa fa-times-circle"></i> Manage Questions</a></li>
                 <li><a href="{{route('questions.home')}}"><i class="fa fa-eye"></i> View Questions</a></li>
-                    <li><a href="{{route('questions.home')}}" onclick="event.preventDefault();alert('Print Feature yet to be added')"><i class="fa fa-print"></i> Print Questions</a></li>
+                    <li><a href="{{route('questions.print')}}"><i class="fa fa-print"></i> Print Questions</a></li>
                 </ul>
             </li>
               <li class="treeview">
@@ -367,8 +367,8 @@
                 <i class="fa fa-angle-left pull-right"></i>
             </a>
             <ul class="treeview-menu">
-                <li><a href="pages/tables/data.html"><i class="fa fa-angle-double-right"></i> Print MarkSheets</a></li>
-                <li><a href="pages/tables/simple.html"><i class="fa fa-angle-double-right"></i> Post Results</a></li>
+                <li><a href="{{route('students.marksheet')}}"><i class="fa fa-angle-double-right"></i> Print MarkSheets</a></li>
+                <li><a href="{{route('marks.post')}}"><i class="fa fa-angle-double-right"></i> Post Results</a></li>
                 <li><a href="pages/tables/data.html"><i class="fa fa-angle-double-right"></i>View Results</a></li>
                 <li><a href="pages/tables/data.html"><i class="fa fa-angle-double-right"></i>Print Results</a></li>
             </ul>

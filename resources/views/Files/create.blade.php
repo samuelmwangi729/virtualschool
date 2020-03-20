@@ -36,9 +36,19 @@
            </div><br>
            <div class="panel-body text-center">
             <div class="col-sm-6">
+            <label for="subject" class="label-control">Subject</label>
+            <select name="subject" class="form-control">
+            <option>English</option>
+            <option>Kiswahili</option>
+            <option>Mathematics</option>
+            </select>
+            </div>
+             <div class="col-sm-4">
                 <input type="file" class="form-control" name="file">
-               </div>
-                <button type="submit" class="btn btn-success"><i class="fa fa-plus-circle"></i>&nbsp;&nbsp;Upload File</button>
+            </div>
+            <div class="row">
+             <button type="submit" class="btn btn-success"><i class="fa fa-plus-circle"></i>&nbsp;&nbsp;Upload File</button>
+            </div>
            </div>
        </div>
     </form>

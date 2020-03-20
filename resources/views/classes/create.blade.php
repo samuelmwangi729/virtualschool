@@ -45,7 +45,7 @@
         <div class="pull-center">
            <button type="submit" class="btn btn-success"
            onclick="event.preventDefault();document.getElementById('subject-form').submit()"
-           ><i class="fa fa-plus-circle"></i>&nbsp;&nbsp;Add Subject</button>
+           ><i class="fa fa-plus-circle"></i>&nbsp;&nbsp;Add Class</button>
         </div>
     </form>
 </div>

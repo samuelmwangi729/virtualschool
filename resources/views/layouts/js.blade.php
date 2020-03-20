@@ -1,7 +1,7 @@
 <!-- jQuery 2.0.2 -->
 <script src="{{asset('js/jquery-1.12.1.min.js')}}"></script>
-<!-- jQuery UI 1.10.3 -->
-<script src="{{asset('js/jquery-ui-1.10.3.min.js')}}" type="text/javascript"></script>
+{{-- <!-- jQuery UI 1.10.3 -->
+<script src="{{asset('js/jquery-ui-1.10.3.min.js')}}" type="text/javascript"></script> --}}
 <!-- Bootstrap -->
 <script src="{{asset('js/bootstrap.min.js')}}" type="text/javascript"></script>
 <!-- Morris.js charts -->
@@ -26,5 +26,5 @@
 <!-- AdminLTE App -->
 <script src="{{asset('js/AdminLTE/app.js')}}" type="text/javascript"></script>
 
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{asset('js/AdminLTE/dashboard.js')}}" type="text/javascript"></script>  
+{{-- <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="{{asset('js/AdminLTE/dashboard.js')}}" type="text/javascript"></script>   --}}

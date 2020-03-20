@@ -18,6 +18,7 @@ class CreateFilesTable extends Migration
             $table->string('fileName');
             $table->string('uploadedBy');
             $table->string('BelongsTo');
+            $table->string('Subject');
             $table->boolean('Marked')->default(0);
             $table->boolean('status')->default(0);
             $table->timestamps();

@@ -98,7 +98,7 @@
                              <label for="name" class="col-md-6 col-form-label text-md-right">{{ __('Unique Identifier') }}</label>
  
                              <div class="col">
-                                 <input id="name" type="text" readonly class="form-control @error('name') is-invalid @enderror" name="uid" value="{{ Str::random(6)}}" required autocomplete="name" autofocus>
+                                 <input id="name" type="text" readonly class="form-control @error('name') is-invalid @enderror" name="uid" value="{{ Str::random(10)}}" required autocomplete="name" autofocus>
  
                                  @error('name')
                                      <span class="invalid-feedback" role="alert">

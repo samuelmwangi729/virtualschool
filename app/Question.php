@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Question extends Model
 {
     public $fillable=[
-        'level','class','question','marks','status','topic'
+        'level','class','subject','question','marks','status','topic'
     ];
 }
