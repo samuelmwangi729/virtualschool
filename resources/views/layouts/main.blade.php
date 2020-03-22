@@ -346,8 +346,9 @@
                       <i class="fa fa-angle-left pull-right"></i>
                   </a>
                   <ul class="treeview-menu">
-                  <li><a href="{{route('files.all')}}"><i class="fa fa-plus"></i> Upload Answer Sheet</a></li>
+                    <li><a href="{{route('files.all')}}"><i class="fa fa-plus"></i> Upload Answer Sheet</a></li>
                       <li><a href="{{route('files.view')}}"><i class="fa fa-eye"></i> Uploaded Answer Sheets</a></li>
+                      <li><a href="{{route('answersheet.print')}}"><i class="fa fa-print"></i> Print Answer Sheets</a></li>
                   </ul>
               </li>
               <li class="treeview">
@@ -361,16 +362,25 @@
                       <li><a href="{{route('students.print')}}"><i class="fa fa-print"></i> Print Students List</a></li>
                   </ul>
               </li>
-            <li class="treeview">
+            {{-- <li class="treeview">
             <a href="#">
-                <i class="fa fa-table"></i> <span>Results</span>
+                <i class="fa fa-table"></i> <span>Bulk Operations</span>
                 <i class="fa fa-angle-left pull-right"></i>
             </a>
             <ul class="treeview-menu">
                 <li><a href="{{route('students.marksheet')}}"><i class="fa fa-angle-double-right"></i> Print MarkSheets</a></li>
-                <li><a href="{{route('marks.post')}}"><i class="fa fa-angle-double-right"></i> Post Results</a></li>
-                <li><a href="pages/tables/data.html"><i class="fa fa-angle-double-right"></i>View Results</a></li>
+                <li><a href="{{route('marks.post')}}"><i class="fa fa-angle-double-right"></i> Upload AnswerSheets</a></li>
                 <li><a href="pages/tables/data.html"><i class="fa fa-angle-double-right"></i>Print Results</a></li>
+            </ul>
+            </li> --}}
+            <li class="treeview">
+            <a href="#">
+                <i class="fa fa-check-circle"></i> <span>Marked Exams</span>
+                <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="{{route('marked.post')}}" target="_parent"><i class="fa fa-check-circle"></i> Upload MarkedSheets</a></li>
+                {{-- <li><a href="pages/tables/data.html"><i class="fa fa-angle-double-right"></i>Print Results</a></li> --}}
             </ul>
             </li>
               <li class="treeview">

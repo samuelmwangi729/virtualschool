@@ -73,7 +73,7 @@
         </div>
     </form>
     <div class="pull-right">
-    <button class="btn btn-primary"><i class="fa fa-file"></i>Upload File</button>
+    <button class="btn btn-primary" onclick="window.open('/FileQuestion','_parent')"><i class="fa fa-file"></i>Upload File</button>
     </div>
 </div>
 @stop

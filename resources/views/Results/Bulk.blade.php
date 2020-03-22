@@ -2,6 +2,12 @@
 @section('content')
 <div class="container-fluid">
 <div class="table-responsive">
+ @if(Session::has('success'))
+    <div class="alert alert-success">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+        {{ Session::get('success') }}
+    </div>
+    @endif
 @if(Session::has('error'))
     <div class="alert alert-danger">
     {!! Session::get('error') !!}

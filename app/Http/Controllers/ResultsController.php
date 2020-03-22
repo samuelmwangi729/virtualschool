@@ -7,7 +7,9 @@ use App\Student;
 use Auth;
 use Session;
 use App\User;
+use App\Files;
 use App\Subject;
+use App\Marked;
 class ResultsController extends Controller
 {
     /**
@@ -51,6 +53,14 @@ class ResultsController extends Controller
     {
         return view('results.post')->with('students', $students=Student::where('SchoolAffiliate',Auth::user()->schoolName)->get());
     }
+    public function marked(){
+        return view('Results.marked')
+        ->with('schools',user::where('isInd',0)->get())
+        ->with('subjects',Subject::all());
+    }
+    public function smarked(){
+        return view('Results.single')->with('subjects',Subject::all());
+    }
     public function bulk(){
         return view('Results.Bulk')
         ->with('schools',user::where('isInd',0)->get())
@@ -63,6 +73,7 @@ class ResultsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    
     public function store(Request $request)
     {
         $this->validate($request,[
@@ -83,7 +94,6 @@ class ResultsController extends Controller
             Session::flash('error','Upload exactly '.count($students).' Copies of Answersheets');
             return redirect()->back();
         }
-        dd();
         //upload the files with the schools name on them 
         if(count($filesArray)>0){
             for($i=0;$i<count($filesArray);$i++){
@@ -93,7 +103,49 @@ class ResultsController extends Controller
                     'BelongsTo'=>$request->school,
                     'Subject'=>$request->subject
                 ]);
+                $destination_path=public_path('/uploads');
+                $files[$i]->move( $destination_path, $filesArray[$i]);
             }
+            Session::flash('success','Files have been uploaded');
+            return redirect()->back();
+        }
+    }
+    //to store the uploaded marked exams
+    public function mstore(Request $request)
+    {
+        $this->validate($request,[
+            'school'=>'required',
+            'subject'=>'required',
+        ]);
+        $filesArray=[];
+        $files=$request->file('files');
+        foreach($files as $file){
+            //the user now knows not the filename
+            //never trust the user 
+            $newFile= time() . $file->getClientOriginalName();
+            array_push($filesArray,$newFile);
+        }
+        //limit the number of files uploaded = the number of registered students 
+        $students=Student::where('SchoolAffiliate',$request->school)->get();
+        if(count($filesArray) != count($students)){
+            Session::flash('error','<i class="fa fa-exclamation" style="color:red"></i>&nbsp;Upload exactly '.count($students).' Copies of Marked sheets');
+            return redirect()->back();
+        }
+        //update the status of the files
+        //upload the files with the schools name on them 
+        if(count($filesArray)>0){
+            for($i=0;$i<count($filesArray);$i++){
+                Marked::create([
+                    'fileName'=>$filesArray[$i],
+                    'uploadedBy'=>Auth::user()->name,
+                    'BelongsTo'=>$request->school,
+                    'Subject'=>$request->subject
+                ]);
+                $destination_path=public_path('/uploads');
+                $files[$i]->move( $destination_path, $filesArray[$i]);
+            }
+            Session::flash('success','Marked Copies  have been uploaded Successfully');
+            return redirect()->back();
         }
     }
 

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Session;
 use App\Files;
 use Auth;
+use App\Marked;
 class FilesController extends Controller
 {
     /**
@@ -53,6 +54,34 @@ class FilesController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    public function sstore(Request $request)
+    {
+        $this->validate($request,[
+            'file'=>'required',
+            'subject'=>'required',
+            'uid'=>'required'
+        ]);
+        $file=$request->file;
+        $fileMimeType=$file->getmimeType();
+        $extension=explode('/',$fileMimeType);
+        $extensions=array('pdf');
+        $newFileName=time().$file->getClientOriginalName();
+        if(in_array($extension[1],$extensions)){
+            $file->move('uploads/',$newFileName);
+            Marked::create([
+                'fileName'=>$newFileName,
+                'uploadedBy'=>Auth::user()->name,
+                'BelongsTo'=>$request->uid,
+                'Subject'=>$request->subject
+            ]);
+            Session::flash('success','Answer Sheet successfully Uploaded');
+            return redirect()->back();
+        }else{
+            Session::flash('error','Unknown File extension: Allowed: .pdf Only');
+            return redirect()->back();
+        }
+    }
+
     public function store(Request $request)
     {
         $this->validate($request,[
@@ -92,13 +121,34 @@ class FilesController extends Controller
     }
     public function all(){
         //this will show all the files uploaded
-        $files=Files::all();
+        $files=Files::where('BelongsTo',Auth::user()->schoolName)->paginate(10);
         // dd(response()->json($files, 200));
         if(is_null($files)){
             return redirect()->back();
             Session::flash('error','No Files Uploaded');
         }
         return view('Files.view')->with('files',$files);
+    }
+    public function marked(){
+        if(Auth::user()->isInd==0){
+            //this will show all the files uploaded
+        $files=Marked::where('BelongsTo',Auth::user()->schoolName)->paginate(10);
+        // dd(response()->json($files, 200));
+        if(is_null($files)){
+            return redirect()->back();
+            Session::flash('error','No Files Uploaded');
+        }
+        return view('Files.marked')->with('files',$files);
+        }else{
+            //this will show all the files uploaded
+        $files=Marked::where('BelongsTo',Auth::user()->uid)->paginate(10);
+        // dd(response()->json($files, 200));
+        if(is_null($files)){
+            return redirect()->back();
+            Session::flash('error','No Files Uploaded');
+        }
+        return view('Files.marked')->with('files',$files);
+        }
     }
 
     /**

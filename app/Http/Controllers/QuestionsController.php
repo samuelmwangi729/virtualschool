@@ -7,7 +7,10 @@ use App\Classes;
 use App\Question;
 use App\Topic;
 use App\Subject;
+use App\fileQuestion;
 use Session;
+use App\Student;
+use Auth;
 
 class QuestionsController extends Controller
 {
@@ -26,6 +29,7 @@ class QuestionsController extends Controller
     {
         return view('Questions.fileQuestions')
         ->with('classes',Classes::all())
+        ->with('subjects',Subject::all())
         ->with('topics',Topic::all());
     }
     public function all()
@@ -33,7 +37,7 @@ class QuestionsController extends Controller
         return view('Questions.all')
         ->with('questions',Question::all())
         ->with('classes',Classes::all())
-        ->with('topics',Topic::all());;
+        ->with('topics',Topic::all());
     }
 
     /**
@@ -53,6 +57,41 @@ class QuestionsController extends Controller
         ->with('classes',Classes::all())
         ->with('topics',Topic::all())
         ->with('subjects',Subject::all());
+    }
+
+    Public function qfiles(){
+        return view('Questions.qfiles')
+        ->with('questions',fileQuestion::all())
+        ->with('classes',Classes::all());
+    }
+    public function answersheet(){
+       return view('answersheet')
+       ->with('classes',Classes::all())
+        ->with('topics',Topic::all())
+        ->with('subjects',Subject::all());
+    }
+    public function answers(Request $request){
+        $fileName="AnswerSheet.pdf";
+            $mpdf=new \Mpdf\Mpdf([
+                'margin_left'=>10,
+                'margin_top'=>21,
+                'margin_right'=>10,
+                'margin_bottom'=>50,
+                'margin_header'=>10,
+                'margin_footer'=>10,
+            ]);
+            $html= \View::make('answer');
+            $html=$html->render();
+            $mpdf->SetWatermarkText(config('app.name'));
+            $mpdf->watermark_font = 'DejaVuSansCondensed';
+            $name=config('app.name');
+            $mpdf->SetHeader('Virtual School '.$request->subject.' AnswerSheet <br>'.$request->level.' '.$request->class.' Class <br>Printed on '.date('Y/M/D').'<br><br><div class="pull-right">Unique Identifier...........................................</span>&nbsp;School: '.Auth::user()->schoolName);
+            $mpdf->SetFooter('{PAGENO}');
+            // $stylesheet=file_get_contents(url('/css/bootstrap.css'));
+            // $mpdf->WriteHTML($stylesheet,1);
+    
+            $mpdf->WriteHTML($html);
+            $mpdf->Output($fileName,'I');
     }
 
     /**
@@ -78,6 +117,32 @@ class QuestionsController extends Controller
             'topic'=>$request->topic,
             'question'=>$request->question
         ]);
+        Session::flash('success','Question Successfully Posted');
+        return redirect()->back();
+    }
+    public function fstore(Request $request)
+    {
+        $this->validate($request,[
+            'level'=>'required',
+            'class'=>'required',
+            'subject'=>'required',
+            'questionfile'=>'required',
+            'topic'=>'required'
+        ]);
+        // dd($request->all());
+        $file=$request->questionfile;
+        $newFileName=time().$file->getClientOriginalName();
+        $destination_path=public_path('/uploads');
+        $file->move($destination_path,$newFileName);
+        fileQuestion::create([
+            'level'=>$request->level,
+            'class'=> $request->class,
+            'subject'=>$request->subject,
+            'questionfile'=>$newFileName,
+            'topic'=>$request->topic,
+            'question'=>$request->question
+        ]);
+       
         Session::flash('success','Question Successfully Posted');
         return redirect()->back();
     }

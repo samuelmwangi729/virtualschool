@@ -18,7 +18,7 @@
        @endforeach
    </div>
    @endif
-<form id="q-form" method="POST" action="{{route('files.file')}}">
+<form id="subject-form" method="POST" action="{{route('questionfile.store')}}" enctype="multipart/form-data">
     @csrf
         <fieldset>
             <legend class="text-center">Add Revision Questions</legend>
@@ -39,6 +39,15 @@
                        <option>General</option>
                     </select>
                 </div>
+                 <div class="col-sm-3">
+                    <label for="subjectLevel" class="label-control">Subject</label>
+                    <select class="form-control" name="subject">
+                       @foreach($subjects as $subject)
+                    <option value="{{$subject->subjectName}}">{{$subject->subjectName}}</option>
+                       @endforeach
+                       <option>General</option>
+                    </select>
+                </div>
                 <div class="col-sm-3">
                     <label for="subjectName" class="label-control">Question Topic</label>
                     <select class="form-control" name="topic">
@@ -50,14 +59,14 @@
                 </div>
                 <div class="col-sm-3">
                     <label for="subjectName" class="label-control">Question Paper</label>
-                    <input type="file" name="questionPaper">
+                    <input type="file" class="form-control"  name="questionfile">
                 </div>
             </div>
         </fieldset>
         <div class="pull-center">
            <button type="submit" class="btn btn-success"
-           onclick="event.preventDefault();document.getElementById('q-form').submit()"
-           ><i class="fa fa-plus-circle"></i>&nbsp;&nbsp;Post Question</button>
+           onclick="event.preventDefault();document.getElementById('subject-form').submit()"
+           ><i class="fa fa-plus-circle"></i>&nbsp;&nbsp;Post Questions</button>
         </div>
     </form>
 </div>
