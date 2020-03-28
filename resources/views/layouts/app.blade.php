@@ -43,10 +43,10 @@
     <header class="main_menu home_menu" >
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-12">
-                    <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="col-lg-12" style="height:50px !important">
+                    <nav class="navbar navbar-expand-sm navbar-light" style="margin-top:-20px">
                     <a class="navbar-brand" style="color:#f04d0c;font-weight:bold" href="{{route('index')}}"> 
-                            <img src="img/logo/logo.png" alt="logo" width="100px" height="100px">
+                    <img src="{{asset('img/logo/logo.png')}}" alt="VirtualSchool" width="50px" height="50px">
                          </a>
                         <button class="navbar-toggler pull-right" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -61,10 +61,10 @@
                                     <a class="nav-link" href="{{route('index')}}"><i class="fa fa-home" style="font-size:20px;color:red"></i></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#about">About</a>
+                                    <a class="nav-link" href="{{url('/#about')}}">About</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="http://127.0.0.1:8000/#about">Services</a>
+                                    <a class="nav-link" href="{{url('/#about')}}">Services</a>
                                 </li>
                                 {{-- <li class="nav-item">
                                     <a class="nav-link" href="blog.html">Blog</a>
@@ -83,13 +83,13 @@
                                         Files
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="single-blog.html">Schemes Of Work</a>
-                                        <a class="dropdown-item" href="elements.html">Past Papers</a>
-                                        <a class="dropdown-item" href="elements.html">Others</a>
+                                        <a class="dropdown-item" href="#">Schemes Of Work</a>
+                                        <a class="dropdown-item" href="#">Past Papers</a>
+                                        <a class="dropdown-item" href="#">Others</a>
                                     </div>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#contact">Contact</a>
+                                    <a class="nav-link" href="{{url('/#contact')}}">Contact</a>
                                 </li>
                                 @if(Auth::check())
                                 <li class="nav-item">
@@ -100,8 +100,8 @@
                                     <a class="nav-link"  href="/login">Login</a>
                                 </li>
                                 @endif
-                                <li class="d-none d-lg-block">
-                                    <a class="btn_1" href="#">View Pricing</a>
+                                <li class="d-none d-lg-block pull-right">
+                                <a class="btn_1" href="{{url('/#pricing')}}">View Pricing</a>
                                 </li>
                             </ul>
                         </div>

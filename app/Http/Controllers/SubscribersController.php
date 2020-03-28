@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Payment;
+use App\Subscriber;
 use Session;
 
-class PaymentsController extends Controller
+class SubscribersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class PaymentsController extends Controller
      */
     public function index()
     {
-        return view('Payments.create');
+        //
     }
 
     /**
@@ -37,13 +37,15 @@ class PaymentsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'TransactionId'=>'required',
-            'Amount'=>'required',
-            'ClientNumber'=>'required',
-            'AccountName'=>'required',
+            'emailAddress'=>'required'
         ]);
-        Payment::create($request->all());
-        Session::flash('success','Payments Successfully Recorded');
+        $subscriber=Subscriber::where('emailAddress',$request->emailAddress)->get();
+        if($subscriber->count()>0){
+            Session::flash('error','Already Subscribed! Thanks for Subscribing For our NewsLetter');
+            return redirect()->back();
+        }
+        Subscriber::create($request->all());
+        Session::flash('success',$request->emailAddress.' Successfully Subscribed to the newsletter');
         return redirect()->back();
     }
 
@@ -80,31 +82,6 @@ class PaymentsController extends Controller
     {
         //
     }
-    public function Print(){
-        $fileName="Payments.pdf";
-        $mpdf=new \Mpdf\Mpdf([
-            'margin_left'=>10,
-            'margin_top'=>21,
-            'margin_right'=>10,
-            'margin_bottom'=>50,
-            'margin_header'=>10,
-            'margin_footer'=>10,
-        ]);
-        $payments=Payment::all();
-        $html= \View::make('payments')->with('payments',$payments);
-        $html=$html->render();
-        // $mpdf->Image('/img/logo.jpg',90,210);
-        $mpdf->SetWatermarkText(config('app.name'));
-        $mpdf->watermark_font = 'DejaVuSansCondensed';
-        $mpdf->SetHeader('VirtualSchool<br>Payments Statements as at '.date('Y-m-d').'');
-        $mpdf->SetFooter('{PAGENO}');
-        // $stylesheet=file_get_contents(url('/css/bootstrap.css'));
-        // $mpdf->WriteHTML($stylesheet,1);
-
-        $mpdf->WriteHTML($html);
-        $mpdf->Output($fileName,'I');
-        // return view('payments')->with('payments',);
-    }
 
     /**
      * Remove the specified resource from storage.
@@ -115,8 +92,5 @@ class PaymentsController extends Controller
     public function destroy($id)
     {
         //
-    }
-    public function showAll(){
-        return view('Payments.all')->with('payments',Payment::all());
     }
 }

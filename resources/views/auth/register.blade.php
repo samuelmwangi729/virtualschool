@@ -5,11 +5,13 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header"><span style="font-size:20px;font-weight:bold">{{ __('Register') }} to </span>
-                <a class="navbar-brand" style="color:#f04d0c;font-weight:bold" href="{{route('index')}}"> 
-                    {{-- <img src="img/logo.png" alt="logo"> --}}
-                    {{ config('app.name') }}
-                 </a></div>
+                <div class="card-header">
+                    <span style="font-size:20px;font-weight:bold">{{ __('Register') }} to  
+                        <span style="color:#f04d0c;font-weight:bold">
+                             {{ config('app.name') }}
+                        </span>
+                    </span>
+                </div>
 
                 <div class="card-body">
                    @if($errors->count())
@@ -33,7 +35,7 @@
                             </div>
                            </div>
                            <div class="col-sm-6">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Gender') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Gender') }}</label><br>
 
                             <div class="col">
                                 <div class="col">           

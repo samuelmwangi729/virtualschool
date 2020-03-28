@@ -73,7 +73,14 @@ class TopicsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $topic=Topic::find($id);
+        if(is_null($topic) || $topic->count()==0){
+            Session::flash('error','The topic does not Exist, Come back later');
+            return redirect()->back();
+        }
+        return view('Topics.edit')
+        ->with('topic',$topic)
+        ->with('classes',Classes::all());
     }
 
     /**
@@ -85,7 +92,17 @@ class TopicsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $topic=Topic::find($id);
+        if(is_null($topic) || $topic->count()==0){
+            Session::flash('error','The topic does not Exist, Come back later');
+            return redirect()->back();
+        }
+        $topic->level=$request->level;
+        $topic->class=$request->class;
+        $topic->topic=$request->topic;
+        $topic->save();
+        Session::flash('success','Topic has been Updated Successfully');
+        return redirect()->back();
     }
 
     /**

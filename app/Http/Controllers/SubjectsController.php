@@ -73,7 +73,16 @@ class SubjectsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $subject=Subject::find($id);
+        if(is_null($subject)){
+            Session::flash('error','No Such Subject');
+            return redirect()->back();
+        }
+        if($subject->count()==0){
+            Session::flash('error','No Subjects Currently Posted, :Come back Later');
+            return redirect()->back();
+        }
+        return view('subjects.edit')->with('subject',$subject);
     }
 
     /**
@@ -85,7 +94,22 @@ class SubjectsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'level'=>'required',
+            'subjectCode'=>'required',
+            'subjectName'=>'required'
+        ]);
+        $subject=Subject::find($id);
+        if(is_null($subject) || $subject->count()==0){
+            Session::flash('error','The Subject does not exist');
+            return redirect()->back();
+        }
+        $subject->level=$request->level;
+        $subject->subjectCode=$request->subjectCode;
+        $subject->subjectName=$request->subjectName;
+        $subject->save();
+        Session::flash('success','Details Successfully Updated');
+        return redirect()->back();
     }
 
     /**
@@ -96,6 +120,13 @@ class SubjectsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $subject=Subject::find($id);
+        if(is_null($subject) || $subject->count()==0){
+            Session::flash('error','Sebject Does Not Exist');
+            return redirect()->back();
+        }
+        $subject->destroy($id);
+        Session::flash('error','Subject Deleted');
+        return redirect()->back();
     }
 }

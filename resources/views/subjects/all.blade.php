@@ -3,6 +3,18 @@
 <div class="container-fluid">
     All Subjects
     <div class="box-body table-responsive">
+        @if(Session::has('error'))
+            <div class="alert alert-danger">
+                <a href="#" class="close" data-dismiss="alert">&times;</a>
+                    {{ Session::get('error') }}
+            </div>
+        @endif
+        @if(Session::has('success'))
+            <div class="alert alert-success">
+                <a href="#" class="close" data-dismiss="alert">&times;</a>
+                    {{ Session::get('success') }}
+            </div>
+        @endif
         <table id="example1" class="table table-bordered table-striped">
             <thead>
                 <tr>

@@ -12,6 +12,22 @@
                 <div class="col-lg-6 col-xl-6">
                     <div class="banner_text">
                         <div class="banner_text_iner">
+                            @if(Session::has('success'))
+                            <div class="alert alert-success">
+                                <a href="#" class="close" data-dismiss="alert">&times;
+
+                                </a>
+                                    {{ Session::get('success') }}
+                            </div>
+                            @endif
+                            @if(Session::has('error'))
+                            <div class="alert alert-danger">
+                                <a href="#" class="close" data-dismiss="alert">&times;
+
+                                </a>
+                                    {{ Session::get('error') }}
+                            </div>
+                            @endif
                             <h5>Every Student Counts</h5>
                             <h1>Making Your Childs
                                 Future Brighter</h1>
@@ -78,7 +94,7 @@
             <div class="row">
                 <div class="col-sm-6 col-xl-4 align-self-center">
                     <div class="single_feature_text ">
-                        <h2>{{ config('app.name') }} <br> Pricing</h2>
+                        <h2><span style="color:#f1590d">{{ config('app.name') }} </span> <br> Pricing</h2>
                         <p>With our cheap and affordable rates, we are here to help.
                          </p>
                     </div>
@@ -88,17 +104,17 @@
                         <div class="single_feature_part">
                             <span class="single_feature_icon"><i class="fa fa-user"></i></span>
                             <h4>Single Paper Marking</h4>
-                            <h4>Ksh .{{ App\Price::where('paperType','Single Paper')->get()->first()->Amount }} Per Paper </h4>
+                            <h4>Ksh .{{ App\Price::where('paperType','Single Paper')->get()->first()->Amount ?? 0 }} Per Paper </h4>
                             <p>This is the price mostly charged by marking a single paper uploaded to our portal</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6 col-xl-4">
-                    <div class="single_feature">
+                    <div class="single_feature" id="pricing">
                         <div class="single_feature_part">
                             <span class="single_feature_icon"><i class="fa fa-users"></i></span>
                             <h4>Bulk Papers Marking</h4>
-                            <h4>Ksh .{{ App\Price::where('paperType','Bulk Papers')->get()->first()->Amount }} Per Paper </h4>
+                            <h4>Ksh .{{ App\Price::where('paperType','Bulk Papers')->get()->first()->Amount ?? 0 }} Per Paper </h4>
                             <p>With the education Institutions using our site, we offer a discount to them by reducing the price slightly</p>
                         </div>
                     </div>
@@ -145,7 +161,7 @@
             <div class="row align-items-sm-center align-items-xl-stretch">
                 <div class="col-md-6 col-lg-6">
                     <div class="learning_member_text">
-                        <h5>Advance feature</h5>
+                        <h5>Our Services</h5>
                         <h2>Our Advanced Examination
                              System</h2>
                         <p>With this, we provide fast and efficient ways of delivering the results to the teacher together with the Institution
@@ -184,28 +200,35 @@
             <div class="row justify-content-between">
                 <div class="col-sm-6 col-md-4 col-xl-3">
                     <div class="single-footer-widget footer_1">
-                        <a class="navbar-brand" style="color:#f04d0c;font-weight:bold" href="{{route('index')}}"> 
-                            {{-- <img src="img/logo.png" alt="logo"> --}}
-                            {{ config('app.name') }}
+                        <h4 style="color:#f1590d">{{config('app.name')}}</h4><br>
+                        <a class="navbar-brand" style="color:#f1590d;font-weight:bold" href="{{route('index')}}"> 
+                            <img src="{{asset('img/logo/logo.png')}}" alt="VirtualSchool" width="50px" height="50px">
                          </a>
-                        <p>We provide online solutions to testing and resources to all educators who are ready. </p>
-                        <p>At an affordable rate </p>
+                        <p>We provide online solutions to testing and resources to ready educators at an affordable rate </p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-4 col-xl-4">
                     <div class="single-footer-widget footer_2">
-                        <h4>Newsletter</h4>
+                        <marquee><h4>Newsletter</h4></marquee>
                         <p>Stay Updated with the latest articles and resources uploaded. Subscribe and get weekly reports
                         </p>
-                        <form action="#">
+                       {{-- save this for the subscribers --}}
+                    <form action="{{route('subscribe')}}" method="post">
+                        @csrf
                             <div class="form-group">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control" placeholder='Enter email address'
-                                        onfocus="this.placeholder = 'hehe'"
+                                    @if($errors->all())
+                                        <div class="alert alert-danger">
+                                            <a class="close" href="#" data-dismiss="alert">&times;</a>
+                                        @foreach($errors->all() as $error)
+                                            {{ $error }}
+                                        @endforeach
+                                        </div>
+                                    @endif
+                                    <input type="email" class="form-control" name="emailAddress" placeholder='email address'
+                                        onfocus="this.placeholder = 'email'"
                                         onblur="this.placeholder = 'Enter email address'">
-                                    <div class="input-group-append">
-                                        <button class="btn btn_1" type="button"><i class="ti-angle-right"></i></button>
-                                    </div>
+                                        <button class="btn btn_1" type="submit" style="width:100px">Subscribe</button>
                                 </div>
                             </div>
                         </form>
@@ -223,7 +246,7 @@
                         <div class="contact_info">
                             <p><span> Address :</span> Times Tower off Jogoo road </p>
                             <p><span> Phone :</span> +254 (07) 04-922-042</p>
-                            <p><span> Email : </span>samuelmwangi729@gmail.com </p>
+                            <p><span> Email : </span>mail@virtualschool.co.ke </p>
                         </div>
                     </div>
                 </div>
@@ -237,7 +260,7 @@
                             <div class="col-lg-12">
                                 <p class="footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 {{-- Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> --}}
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved |  made with <i class="ti-heart" style="color:red" aria-hidden="true"></i> by <a href="#" target="_blank">Samuel Mwangi</a>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved <span style="color:red">virtualschool.co.ke</span> |  made with <i class="fa fa-heart" style="color:red;" aria-hidden="true"></i> by <a href="#" target="_blank">Samuel Mwangi</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                             </div>
                         </div>

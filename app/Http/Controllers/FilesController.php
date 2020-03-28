@@ -130,7 +130,14 @@ class FilesController extends Controller
     }
     public function all(){
         //this will show all the files uploaded
-        $files=Files::where('BelongsTo',Auth::user()->schoolName)->paginate(10);
+        if(Auth::user()->isAdmin==1){
+            $files=Files::where('id','>=','1')->paginate(10);
+        }else if(Auth::user()->isInd==1){
+            $files=Files::where('uploadedBy',Auth::user()->name)->paginate(10);
+        }
+        else{
+            $files=Files::where('BelongsTo',Auth::user()->schoolName)->paginate(10);
+        }
         // dd(response()->json($files, 200));
         if(is_null($files)){
             return redirect()->back();

@@ -74,7 +74,13 @@ class ClassesController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $class=Classes::find($id);
+        if(is_null($class) || $class->count()==0){
+            Session::flash('error','The class Is Not Available');
+            return redirect()->back();
+        }
+        return view('classes.edit')->with('class',$class);
     }
 
     /**
@@ -86,7 +92,20 @@ class ClassesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'className'=>'required'
+        ]);
+        $class=Classes::find($id);
+        if(is_null($class) || $class->count()==0){
+            Session::flash('error','The class Is Not Available');
+            return redirect()->back();
+        }
+        $class->level=$request->level;
+        $class->className=$request->className;
+        $class->save();
+        Session::flash('success','The class has been Successfully Updated');
+        return redirect()->back();
+
     }
 
     /**
@@ -97,6 +116,13 @@ class ClassesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $class=Classes::find($id);
+        if(is_null($class) || $class->count()==0){
+            Session::flash('error','The class Is Not Available');
+            return redirect()->back();
+        }
+        $class->destroy($id);
+        Session::flash('error','Class Successfully Deleted');
+        return redirect()->back();
     }
 }

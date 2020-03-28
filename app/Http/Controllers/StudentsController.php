@@ -95,9 +95,10 @@ class StudentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($uid)
     {
-        //
+        $student=Student::where('UniqueIdentifier','=',$uid)->get()->first();
+        return view('Students.single')->with('student',$student);
     }
 
     /**
@@ -106,9 +107,18 @@ class StudentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($uid)
     {
-        //
+        $student=Student::where('UniqueIdentifier','=',$uid)->get()->first();
+        if(is_null($student)){
+            Session::flash('error','No Such Student Exists');
+            return redirect()->back();
+        }
+        if($student->count()==0){
+            Session::flash('error','No Such Student Exists');
+            return redirect()->back();
+        }
+        return view('Students.edit')->with('student',$student);
     }
 
     /**
@@ -118,9 +128,20 @@ class StudentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $uid)
     {
-        //
+        $this->validate($request,[
+            'StudentName'=>'required'
+        ]);
+        $student=Student::where('UniqueIdentifier','=',$uid)->get()->first();
+        if($student->count()==0){
+            Session::flash('error','No Such Student Exist');
+            return redirect()->back();
+        }
+        $student->studentNames=$request->StudentName;
+        $student->save();
+        Session::flash('success','Student Details Updated');
+        return redirect()->back();
     }
 
     /**

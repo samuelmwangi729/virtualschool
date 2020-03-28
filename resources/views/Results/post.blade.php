@@ -3,7 +3,7 @@
 <div class="container-fluid">
 <div class="table-responsive">
 <div class="pull-right">
-<button class="btn btn-primary" onclick="window.open('/Answers/Bulk/Upload','_parent')">Bulk Answers Upload</button>
+<button class="btn btn-primary" onclick="window.open('/Answers/Bulk/Upload','_parent')">Bulk Answer Sheets Upload</button>
 </div>
 <form>
 <div class="col-sm-5 pull-left">
@@ -18,7 +18,7 @@
 </div>
 <table class="table table-codensed table-striped">
 <tr>
-<th>Student Name</th>
+<th>Student's Name</th>
 <th>Select File</th>
 </tr>
 @foreach($students as $student)
@@ -27,6 +27,9 @@
 <td><input type="file" name="file[]"></td>
 </tr>
 @endforeach
+<tr colspan="2">
+    {{$students->links()}}
+</tr>
 </table>
 <button type="submit" class="btn btn-success disabled">Upload Files</button>
 </form>

@@ -285,11 +285,13 @@
           <!-- /.search form -->
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
+              @if(Auth::user()->isAdmin)
               <li class="active">
               <a href="{{route('home')}}">
-                      <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+              <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                   </a>
               </li>
+              @endif
               <li class="treeview">
                   <a href="#">
                       <i class="fa fa-bar-chart-o"></i>
@@ -297,9 +299,11 @@
                       <i class="fa fa-angle-left pull-right"></i>
                   </a>
                   <ul class="treeview-menu">
-                  <li><a href="{{route('subject.create')}}"><i class="fa fa-plus"></i> Add Subject</a></li>
-                  <li><a href="/Subjects/Manage"><i class="fa fa-times-circle"></i> Manage Subjects</a></li>
-                      <li><a href="{{route('subject.all')}}"><i class="fa fa-eye"></i> View Subjects</a></li>
+                    @if(Auth::user()->isAdmin)
+                        <li><a href="{{route('subject.create')}}"><i class="fa fa-plus"></i> Add Subject</a></li>
+                        <li><a href="/Subjects/Manage"><i class="fa fa-times-circle"></i> Manage Subjects</a></li>
+                    @endif
+                        <li><a href="{{route('subject.all')}}"><i class="fa fa-eye"></i> View Subjects</a></li>
                   </ul>
               </li>
               <li class="treeview">
@@ -309,9 +313,11 @@
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                <li><a href="{{route('classes.create')}}"><i class="fa fa-plus"></i> Add Class</a></li>
-                <li><a href="{{route('classes.home')}}"><i class="fa fa-times-circle"></i> Manage Classes</a></li>
-                <li><a href="{{route('classes.all')}}"><i class="fa fa-eye"></i> View Classes</a></li>
+                    @if(Auth::user()->isAdmin)
+                        <li><a href="{{route('classes.create')}}"><i class="fa fa-plus"></i> Add Class</a></li>
+                        <li><a href="{{route('classes.home')}}"><i class="fa fa-times-circle"></i> Manage Classes</a></li>
+                    @endif
+                    <li><a href="{{route('classes.all')}}"><i class="fa fa-eye"></i> View Classes</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -321,9 +327,11 @@
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                <li><a href="{{route('topics.create')}}"><i class="fa fa-plus"></i> Add Topic</a></li>
-                <li><a href="{{route('topics.home')}}"><i class="fa fa-times-circle"></i> Manage Topics</a></li>
-                <li><a href="{{route('topics.all')}}"><i class="fa fa-eye"></i> View Topics</a></li>
+                    @if(Auth::user()->isAdmin)
+                        <li><a href="{{route('topics.create')}}"><i class="fa fa-plus"></i> Add Topic</a></li>
+                        <li><a href="{{route('topics.home')}}"><i class="fa fa-times-circle"></i> Manage Topics</a></li>
+                    @endif
+                        <li><a href="{{route('topics.all')}}"><i class="fa fa-eye"></i> View Topics</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -333,10 +341,12 @@
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ route('questions.create') }}"><i class="fa fa-plus"></i> Add Questions</a></li>
-                    <li><a href="{{ route('questions.index') }}"><i class="fa fa-times-circle"></i> Manage Questions</a></li>
-                <li><a href="{{route('questions.home')}}"><i class="fa fa-eye"></i> View Questions</a></li>
-                    <li><a href="{{route('questions.print')}}"><i class="fa fa-print"></i> Print Questions</a></li>
+                    @if(Auth::user()->isAdmin)
+                        <li><a href="{{ route('questions.create') }}"><i class="fa fa-plus"></i> Add Questions</a></li>
+                        <li><a href="{{ route('questions.index') }}"><i class="fa fa-times-circle"></i> Manage Questions</a></li>
+                    @endif
+                        <li><a href="{{route('questions.home')}}"><i class="fa fa-eye"></i> View Questions</a></li>
+                        <li><a href="{{route('questions.print')}}"><i class="fa fa-print"></i> Print Questions</a></li>
                 </ul>
             </li>
               <li class="treeview">
@@ -351,6 +361,7 @@
                       <li><a href="{{route('answersheet.print')}}"><i class="fa fa-print"></i> Print Answer Sheets</a></li>
                   </ul>
               </li>
+              @if(Auth::user()->isAdmin || Auth::user()->isInd==0)
               <li class="treeview">
                   <a href="#">
                       <i class="fa fa-user"></i> <span>Students</span>
@@ -362,6 +373,7 @@
                       <li><a href="{{route('students.print')}}"><i class="fa fa-print"></i> Print Students List</a></li>
                   </ul>
               </li>
+              @endif
             {{-- <li class="treeview">
             <a href="#">
                 <i class="fa fa-table"></i> <span>Bulk Operations</span>
@@ -373,6 +385,7 @@
                 <li><a href="pages/tables/data.html"><i class="fa fa-angle-double-right"></i>Print Results</a></li>
             </ul>
             </li> --}}
+            @if(Auth::user()->isAdmin)
             <li class="treeview">
             <a href="#">
                 <i class="fa fa-check-circle"></i> <span>Marked Exams</span>
@@ -405,16 +418,18 @@
                 {{-- <li><a href="pages/tables/data.html"><i class="fa fa-angle-double-right"></i>Print Results</a></li> --}}
             </ul>
             </li>
+            @endif
               <li class="treeview">
                   <a href="#">
                       <i class="fa fa-gears"></i> <span>System Settings</span>
                       <i class="fa fa-angle-left pull-right"></i>
                   </a>
                   <ul class="treeview-menu">
-                      <li><a href="pages/examples/invoice.html"><i class="fa fa-user"></i>Account Status</a></li>
-                      <li><a href="pages/examples/login.html"><i class="fa fa-picture-o"></i> Profile</a></li>
+                  <li><a href="{{route('account')}}"><i class="fa fa-user"></i>Account Status</a></li>
+                  <li><a href="{{route('timetable')}}"><i class="fa fa-calendar"></i>Time Table</a></li>
+                      {{-- <li><a href="pages/examples/login.html"><i class="fa fa-picture-o"></i> Profile</a></li>
                       <li><a href="pages/examples/register.html"><i class="fa fa-credit-card"></i> Payment Details</a></li>
-                      <li><a href="pages/examples/lockscreen.html"><i class="fa fa-print"></i> Payment History</a></li>
+                      <li><a href="pages/examples/lockscreen.html"><i class="fa fa-print"></i> Payment History</a></li> --}}
                   </ul>
               </li>
               <li>

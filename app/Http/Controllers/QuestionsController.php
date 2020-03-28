@@ -11,7 +11,8 @@ use App\fileQuestion;
 use Session;
 use App\Student;
 use Auth;
-
+use DNS2D;
+use DNS1D;
 class QuestionsController extends Controller
 {
     /**
@@ -80,16 +81,13 @@ class QuestionsController extends Controller
                 'margin_header'=>10,
                 'margin_footer'=>10,
             ]);
-            $html= \View::make('answer');
+            $html= \View::make('answer')->with('uid',Auth::user()->uid);
             $html=$html->render();
             $mpdf->SetWatermarkText(config('app.name'));
             $mpdf->watermark_font = 'DejaVuSansCondensed';
-            $name=config('app.name');
             $mpdf->SetHeader('Virtual School '.$request->subject.' AnswerSheet <br>'.$request->level.' '.$request->class.' Class <br>Printed on '.date('Y/M/D').'<br><br><div class="pull-right">Unique Identifier...........................................</span>&nbsp;School: '.Auth::user()->schoolName);
-            $mpdf->SetFooter('{PAGENO}');
-            // $stylesheet=file_get_contents(url('/css/bootstrap.css'));
-            // $mpdf->WriteHTML($stylesheet,1);
-    
+            $image='<img src="data:image/png;base64,' . DNS1D::getBarcodePNG("4haman", "C39+",3,33,array(1,1,1), true);
+            $mpdf->SetFooter('Clearly Number All the Questions {PAGENO}');    
             $mpdf->WriteHTML($html);
             $mpdf->Output($fileName,'I');
     }
@@ -129,7 +127,6 @@ class QuestionsController extends Controller
             'questionfile'=>'required',
             'topic'=>'required'
         ]);
-        // dd($request->all());
         $file=$request->questionfile;
         $newFileName=time().$file->getClientOriginalName();
         $destination_path=public_path('/uploads');
@@ -203,7 +200,16 @@ class QuestionsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $question=Question::find($id);
+        if(is_null($question) || $question->count()==0){
+            Session::flash('error','The Question Does Not Exist');
+            return redirect()->back();
+        }
+        return view('Questions.edit')
+        ->with('classes',Classes::all())
+        ->with('topics',Topic::all())
+        ->with('subjects',Subject::all())
+        ->with('question',$question);
     }
 
     /**
@@ -215,7 +221,27 @@ class QuestionsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'level'=>'required',
+            'class'=>'required',
+            'question'=>'required',
+            'marks'=>'required',
+            'topic'=>'required'
+        ]);
+        $question=Question::find($id);
+        if(is_null($question) || $question->count()==0){
+            Session::flash('error','The Question Does Not Exist');
+            return redirect()->back();
+        }
+        $question->level=$request->level;
+        $question->class= $request->class;
+        $question->subject=$request->subject;
+        $question->marks=$request->marks;
+        $question->topic=$request->topic;
+        $question->question=$request->question;
+        $question->save();
+        Session::flash('success','Question Successfully Updated');
+        return redirect()->back();
     }
 
     /**
@@ -226,6 +252,13 @@ class QuestionsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $question=Question::find($id);
+        if(is_null($question) || $question->count()==0){
+            Session::flash('error','The Question Does Not Exist');
+            return redirect()->back();
+        }
+        $question->destroy($id);
+        Session::flash('error','The Question Has been Deleted');
+        return redirect()->back();
     }
 }

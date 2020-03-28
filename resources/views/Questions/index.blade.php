@@ -34,7 +34,7 @@
                <td>{{$question->question}}</td>
                <td>{{$question->topic}}</td>
                <td>{{$question->marks}}</td>
-                <td><a href="#" class="fa fa-edit btn btn-primary btn-xs">Edit</a>&nbsp;&nbsp;<a href="#" class="fa fa-times btn btn-danger btn-xs" >Delete</a></td>
+               <td><a href="{{route('questions.edit',['id'=>$question->id])}}" class="fa fa-edit btn btn-primary btn-xs">Edit</a>&nbsp;&nbsp;<a href="{{route('questions.delete',['id'=>$question->id])}}" class="fa fa-times btn btn-danger btn-xs" >Delete</a></td>
             </tr>
                @endforeach
             </tbody>

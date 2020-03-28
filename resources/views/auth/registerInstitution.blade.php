@@ -5,10 +5,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header"><span style="font-size:20px;font-weight:bold">{{ __('Register') }} to </span><a class="navbar-brand" style="color:#f04d0c;font-weight:bold" href="{{route('index')}}"> 
-                    {{-- <img src="img/logo.png" alt="logo"> --}}
+                <div class="card-header"><span style="font-size:20px;font-weight:bold">{{ __('Register') }} to <span style="color:#f04d0c;font-weight:bold">
                     {{ config('app.name') }}
-                 </a></div>
+               </span></span></div>
 
                 <div class="card-body">
                    @if($errors->count())
@@ -32,7 +31,7 @@
                             </div>
                            </div>
                            <div class="col-sm-6">
-                            <label for="name" class="col-md-6 col-form-label text-md-right">{{ __('Your Gender') }}</label>
+                            <label for="name" class="col-md-6 col-form-label text-md-right">{{ __('Your Gender') }}</label><br>
 
                             <div class="col">
                                 <div class="col">           
@@ -82,7 +81,7 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-6">
-                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Date Registered') }}</label>
+                             <label for="name" class="col-md-10 col-form-label text-md-right">{{ __('Date Registered') }}</label>
  
                              <div class="col">
                                  <input id="name" type="date" class="form-control @error('name') is-invalid @enderror" name="dob" value="<?php echo date('Y-m-d') ?>" readonly required autocomplete="name" autofocus>

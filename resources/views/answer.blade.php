@@ -222,8 +222,9 @@ table th[class*="col-"] {
 <title>{{config('app.name')}} Exam AnswerSheet</title>
 </head>
 <body>
-<div class="table-responsive" style="padding-top:14px">
-<b><i>Clearly Number All the Questions</i></b>
+<div class="table-responsive" style="padding-top:-50px">
+  <span><?php echo '<img src="data:image/png;base64,' . DNS1D::getBarcodePNG($uid, "C39+") . '" width="200px" height="80px" alt="barcode"   />';
+     ?></span>
 </div>
 </body>
 </html>
