@@ -27,7 +27,7 @@
                     <td>{{$student->studentNames}}</td>
                     <td>{{$student->SchoolAffiliate}}</td>
                     <td>{{$student->UniqueIdentifier}}</td>
-                <td><a href="{{route('student.view',['uid'=>$student->UniqueIdentifier])}}"><i class="fa fa-eye" style="color:green"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{route('student.edit',['uid'=>$student->UniqueIdentifier])}}"><i class="fa fa-pencil" style="color:blue"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{route('student.delete',['uid'=>$student->UniqueIdentifier])}}"><i class="fa fa-trash-o" style="color:red"></i></a></td>
+                <td><a href="{{route('student.view',['uid'=>$student->UniqueIdentifier])}}"><i class="fa fa-eye" style="color:green"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{route('student.edit',['uid'=>$student->UniqueIdentifier])}}"><i class="fa fa-pencil" style="color:blue"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{route('student.delete',['uid'=>$student->id])}}"><i class="fa fa-trash-o" style="color:red"></i></a></td>
                     </tr>
                 @endforeach
             </tbody>

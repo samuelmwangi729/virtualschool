@@ -152,6 +152,13 @@ class StudentsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $student=Student::where('UniqueIdentifier','=',$uid)->get()->first();
+        if(is_null($student) || $student->count()==0){
+            Session::flash('error','No Such Student Exist');
+            return redirect()->back();
+        }
+        $student->destroy($id);
+        Session::flash('error','Student Deleted');
+        return redirect()->back();
     }
 }
