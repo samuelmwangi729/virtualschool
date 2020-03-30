@@ -34,8 +34,8 @@
                             <p>Shape the future of your child with our services. We provide revision
                                 papers at a low and affordable rate. <br>Get Started as a Student or register your institution
                             </p>
-                        <a href="{{route('register')}}" class="btn_1">For Student </a>
-                            <a href="{{route('institution')}}" class="btn_2">For Institution </a>
+                        <a href="{{route('register')}}" class="btn_1">Student Registration </a>
+                            <a href="{{route('institution')}}" class="btn_2">Institution Registration </a>
                         </div>
                     </div>
                 </div>
@@ -135,19 +135,19 @@
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="single_member_counter">
-                        <span class="counter">5000</span>
+                        <span class="counter">1000</span>
                         <h4> All Students</h4>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="single_member_counter">
-                        <span class="counter">1200</span>
+                        <span class="counter">400</span>
                         <h4>Online Students</h4>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="single_member_counter">
-                        <span class="counter">3800</span>
+                        <span class="counter">600</span>
                         <h4>Ofline Students</h4>
                     </div>
                 </div>

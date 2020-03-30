@@ -45,6 +45,5 @@
             </tfoot>
         </table>
     </div><!-- /.box-body -->
-    <a href="#" class="btn btn-primary fa fa-print pull-right">Print</a>
 </div>
 @stop

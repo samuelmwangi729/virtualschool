@@ -33,9 +33,11 @@
     {{$files->links()}}
 </div>
 </div>
+ @if(Auth::user()->isInd==0 || Auth::user()->isAdmin==1)
  <div class="pull-left">
-        <button class="btn btn-success" onclick="window.open('/Marked/Sheets','_parent')">
-            View Institution Marked Copies
-        </button>
-    </div>
+    <button class="btn btn-success" onclick="window.open('/Marked/Sheets','_parent')">
+        View Institution Marked Copies
+    </button>
+</div>
+ @endif
 @stop

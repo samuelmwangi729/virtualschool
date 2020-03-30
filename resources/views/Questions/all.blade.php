@@ -50,7 +50,7 @@
         </table>
     </div><!-- /.box-body -->
     <div class="pull-right">
-    <button class="btn btn-primary" onclick="window.open('/Questions/Files','_parent');">&nbsp;<i class="fa fa-eye"></i>&nbsp;Question Papers</button>
+    <button class="btn btn-success" onclick="window.open('/Questions/Files','_parent');">&nbsp;<i class="fa fa-eye"></i>&nbsp;Question Papers</button>
     </div>
 </div>
 @stop

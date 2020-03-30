@@ -100,6 +100,9 @@
                                     <a class="nav-link"  href="/login">Login</a>
                                 </li>
                                 @endif
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{asset('df2ScuwCrvUmqOPwAAeo5gV4N3NixXRldEkRapmvNEtFEAaUBW/UmqOPwAAeo5gV4N3Ni.pdf')}}">Help</a>
+                                </li>
                                 <li class="d-none d-lg-block pull-right">
                                 <a class="btn_1" href="{{url('/#pricing')}}">View Pricing</a>
                                 </li>
