@@ -265,6 +265,9 @@
         </div>
     </nav>
 </header>
+@if(!is_null(App\Suspend::find(Auth::user()->id)))
+   
+@else
 <div class="wrapper row-offcanvas row-offcanvas-left">
   <!-- Left side column. contains the logo and sidebar -->
   <aside class="left-side sidebar-offcanvas">
@@ -442,6 +445,7 @@
                       <li><a href="pages/examples/lockscreen.html"><i class="fa fa-print"></i> Payment History</a></li> --}}
                   </ul>
               </li>
+              @endif
               <li>
                 <a href="{{ route('logout') }}"
                 onclick="event.preventDefault();

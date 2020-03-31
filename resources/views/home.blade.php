@@ -2,6 +2,10 @@
 
 
 @section('content')
+@if(!is_null(App\Suspend::find(Auth::user()->id)))
+    <h1 class="text-center"><i class="fa fa-exclamation-circle" style="color:red;font-size:40px"></i>Your Account has been suspended!!!<br>Contact the Administrator for help</h1>
+    <span></span>
+@else
 <!-- Small boxes (Stat box) -->
 <div class="row">
     <div class="col-lg-3 col-xs-6">
@@ -154,4 +158,5 @@
         <!-- TO DO List -->
     </section><!-- right col --> --}}
 </div><!-- /.row (main row) -->
+@endif
 @stop
