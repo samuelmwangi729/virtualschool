@@ -44,7 +44,7 @@
                 <input type="text" class="form-control" name="UniqueIdentifier" placeholder="Enter the Name" value="{{ $student->UniqueIdentifier }}" readonly autofocus/>
                 </div>
               </div>
-              <button class="btn btn-success" type="submit" style="margin-top:24px"><i class="glyphicon glyphicon-send" style="color:yellow"></i>&nbsp;Add Student</button>
+              <button class="btn btn-success" type="submit" style="margin-top:24px"><i class="glyphicon glyphicon-send" style="color:yellow"></i>&nbsp;Edit Student</button>
           </div>
       </form>
   </div>

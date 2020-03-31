@@ -38,6 +38,7 @@ Route::get('/Questions/Delete/{id}', 'QuestionsController@destroy')->name('quest
 Route::post('/Questions/Update/{id}', 'QuestionsController@update')->name('questions.update');
 Route::get('/Questions/Manage', 'QuestionsController@index')->name('questions.index');
 Route::get('/Questions/All', 'QuestionsController@all')->name('questions.home');
+Route::post('/Questions/Filter', 'QuestionsController@filter')->name('questions.filter');
 Route::post('/Questions/Store', 'QuestionsController@store')->name('questions.store');
 Route::post('/Subjects/Store', 'SubjectsController@store')->name('subject.store');
 Route::post('/Classes/Store', 'ClassesController@store')->name('class.store');
@@ -73,6 +74,7 @@ Route::get('/Questions/Select/', 'QuestionsController@view')->name('questions.pr
 Route::post('/Questions/View/', 'QuestionsController@print')->name('questions.select');
 Route::post('/Questions/File/Store/', 'QuestionsController@fstore')->name('questionfile.store');
 Route::get('/FileQuestion', 'QuestionsController@file')->name('questions.file');
+Route::post('/FileQuestion/Filter', 'QuestionsController@ffile')->name('fquestions.filter');
 Route::get('/Questions/Files', 'QuestionsController@qfiles')->name('files.questions');
 Route::get('/Answersheet/Fill', 'QuestionsController@answersheet')->name('answersheet.print');
 Route::get('/Markedsheet/Post', 'ResultsController@marked')->name('marked.post');
@@ -81,6 +83,9 @@ Route::get('/Account/Status', 'AccountsController@index')->name('account');
 Route::post('/Account/Update', 'AccountsController@update')->name('account.update');
 Route::post('/Answersheet/Print', 'QuestionsController@answers')->name('answers.print');
 Route::get('/Prices/Add', 'PriceController@index')->name('prices.all');
+Route::get('/Users/Index', 'UsersController@index')->name('users.index');
+Route::get('/Users/Suspend/{uid}', 'UsersController@suspend')->name('user.suspend');
+Route::get('/Users/Restore/{uid}', 'UsersController@destroy')->name('user.restore');
 Route::post('/Prices/Store', 'PriceController@store')->name('prices.store');
 Route::get('/Prices/View', 'PriceController@show')->name('prices.view');
 Route::get('/Prices/Edit/{id}', 'PriceController@edit')->name('price.edit');

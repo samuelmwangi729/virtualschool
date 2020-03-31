@@ -28,7 +28,8 @@
                                     {{ Session::get('error') }}
                             </div>
                             @endif
-                            <h5>Every Student Counts</h5>
+                            {{-- <h5 style="margin-top:100px" class="hidden-lg">Every Student Counts</h5>
+                            <h5 class="hidden-sm hidden-md hidden-xs">Every Student Counts</h5> --}}
                             <h1>Making Your Childs
                                 Future Brighter</h1>
                             <p>Shape the future of your child with our services. We provide revision
@@ -51,8 +52,8 @@
                 <div class="col-sm-6 col-xl-3 align-self-center">
                     <div class="single_feature_text ">
                         <h2>Awesome <br> Feature</h2>
-                        <p>We provide revison papers to students and also act as teachers to the student.
-                            We also help teacher to perform their daily daily tasks.
+                        <p>
+                            We help students to utilize available resources and give feedback
                          </p>
                     </div>
                 </div>
@@ -71,7 +72,8 @@
                         <div class="single_feature_part">
                             <span class="single_feature_icon"><i class="ti-new-window"></i></span>
                             <h4>Qualified Trainers</h4>
-                            <p>Our highly trained Trainers with enough experience in testing will provide professional services.</p>
+                            <p>Our Trainers
+                             provide professional services in testing and help in utilization of available resources.</p>
                         </div>
                     </div>
                 </div>
@@ -162,10 +164,8 @@
                 <div class="col-md-6 col-lg-6">
                     <div class="learning_member_text">
                         <h5>Our Services</h5>
-                        <h2>Our Advanced Examination
-                             System</h2>
-                        <p>With this, we provide fast and efficient ways of delivering the results to the teacher together with the Institution
-                            We will always be there to help.
+                        <h2>Results to the Learner and Institution</h2>
+                        <p>We efficiently and timely provide accurate results.
                         </p>
                         <div class="row">
                             <div class="col-sm-6 col-md-12 col-lg-6">
@@ -233,10 +233,10 @@
                             </div>
                         </form>
                         <div class="social_icon">
-                            <a href="#"> <i class="ti-facebook"></i> </a>
-                            <a href="#"> <i class="ti-twitter-alt"></i> </a>
-                            <a href="#"> <i class="ti-instagram"></i> </a>
-                            <a href="#"> <i class="ti-skype"></i> </a>
+                            <a href="/"> <i class="ti-facebook"></i> </a>
+                            <a href="/"> <i class="ti-twitter-alt"></i> </a>
+                            <a href="/"> <i class="ti-instagram"></i> </a>
+                            <a href="/"> <i class="ti-skype"></i> </a>
                         </div>
                     </div>
                 </div>
@@ -244,9 +244,9 @@
                     <div class="single-footer-widget footer_2">
                         <h4>Contact us</h4>
                         <div class="contact_info">
-                            <p><span> Address :</span> Times Tower off Jogoo road </p>
-                            <p><span> Phone :</span> +254 (07) 04-922-042</p>
-                            <p><span> Email : </span>mail@virtualschool.co.ke </p>
+                            {{-- <p><span> Address :</span> Times Tower off Jogoo road </p> --}}
+                            <p><span> Phone :</span> +254 (07) 94-905-161</p>
+                            <p><span> Email : </span>virtualschoollearning@gmail.com </p>
                         </div>
                     </div>
                 </div>

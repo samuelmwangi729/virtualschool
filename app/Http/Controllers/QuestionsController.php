@@ -33,12 +33,42 @@ class QuestionsController extends Controller
         ->with('subjects',Subject::all())
         ->with('topics',Topic::all());
     }
+    public function ffile(Request $request){
+        $question=fileQuestion::where([
+            'class'=>$request->class,
+            'subject'=>$request->subject
+        ]);
+        if(is_null($question) || $question->count()==0){
+            Session::flash('error','Questions Not Set, Please Come Back Later');
+            return redirect()->back();
+        }
+        return redirect()->back()
+        ->with('questions',fileQuestion::all())
+        ->with('subjects',Subject::all())
+        ->with('classes',Classes::all());
+    }
     public function all()
     {
         return view('Questions.all')
         ->with('questions',Question::all())
         ->with('classes',Classes::all())
+        ->with('subjects',Subject::all())
         ->with('topics',Topic::all());
+    }
+    public function filter(Request $request){
+        $question=Question::where([
+            'subject'=>$request->subject,
+            'class'=>$request->class
+        ])->get();
+        if(is_null($question) || $question->count()==0){
+            Session::flash('error','Questions Not Set, Please Come Back Later');
+            return redirect()->back();
+        }
+        return redirect()->back()
+        ->with('classes',Classes::all())
+        ->with('subjects',Subject::all())
+        ->with('topics',Topic::all())
+        ->with('questions',$question);
     }
 
     /**
@@ -63,6 +93,7 @@ class QuestionsController extends Controller
     Public function qfiles(){
         return view('Questions.qfiles')
         ->with('questions',fileQuestion::all())
+        ->with('subjects',Subject::all())
         ->with('classes',Classes::all());
     }
     public function answersheet(){

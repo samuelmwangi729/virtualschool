@@ -27,7 +27,7 @@
 <form id="subject-form" method="POST" action="{{route('questions.select')}}">
     @csrf
         <fieldset>
-            <legend class="text-center">Add Revision Questions</legend>
+            <legend class="text-center">Print Revision Questions</legend>
             <div class="row form-group">
                 <div class="col-sm-3">
                     <label for="subjectLevel" class="label-control">School Level</label>
