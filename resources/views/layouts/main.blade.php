@@ -61,7 +61,7 @@
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                <a href="/Account/Status" class="btn btn-default btn-flat">Profile</a>
                             </div>
                             <div class="pull-right">
                                 <a href="{{ route('logout') }}" class="btn btn-default btn-flat" onclick="event.preventDefault();
@@ -91,7 +91,7 @@
               <img src="{{asset('img/avatar3.png')}}" class="img-circle" alt="User Image" />
               </div>
               <div class="pull-left info">
-              <p STYLE="font-family:courier;font-size:10px;color:#db5518">Hello, {{$output[0]}}-{{$output[1]}}</p>
+              <p STYLE="font-family:courier;font-size:10px;color:#db5518">Hello, {{Auth::user()->uid}}</p>
 
                   <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
               </div>

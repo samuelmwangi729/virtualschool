@@ -92,6 +92,7 @@ class ClassesController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $output=str_split(Auth::user()->uid,5);
         $this->validate($request,[
             'className'=>'required'
         ]);
