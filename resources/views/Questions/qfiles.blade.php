@@ -30,7 +30,7 @@
             @endforeach
             <option>General</option>
         </select>
-      <button class="btn" style="background-color:#f9f9f9"><i class="fa fa-filter" style="color:red;font-size:30px"></i></button>
+      <button class="btn btn-success" style="background-color:#f9f9f9"><i class="fa fa-filter" style="color:red;font-size:30px">Filter</i></button>
     </form>
 </div>
 <div class="container-fluid">
@@ -43,6 +43,9 @@
                     <th>Class</th>
                     <th>Question Paper</th>
                     <th>Topic</th>
+                   @if(Auth::user()->isAdmin==1)
+                   <th>Action</th>
+                   @endif
                 </tr>
             </thead>
             <tbody>
@@ -52,6 +55,9 @@
                <td>{{$question->class}}</td>
                <td><a href="{{asset('/uploads/'.$question->questionFile)}}">Download the File</a></td>
                <td>{{$question->topic}}</td>
+              @if(Auth::user()->isAdmin==1)
+              <td><a href="{{route('fquestions.edit',['id'=>$question->id])}}" class="fa fa-edit btn btn-primary btn-xs">Edit</a>&nbsp;&nbsp;<a href="{{route('fquestions.delete',['id'=>$question->id])}}" class="fa fa-times btn btn-danger btn-xs" >Delete</a></td>
+              @endif
             </tr>
                @endforeach
             </tbody>
@@ -62,6 +68,9 @@
                         <th>Class</th>
                         <th>Question Paper</th>
                         <th>Topic</th>
+                        @if(Auth::user()->isAdmin==1)
+                        <th>Action</th>
+                        @endif
                     </tr>
                 </tr>
             </tfoot>

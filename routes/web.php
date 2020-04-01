@@ -34,12 +34,15 @@ Route::post('/Subjects/Update/{id}', 'SubjectsController@update')->name('subject
 Route::get('/Classes/Add', 'ClassesController@create')->name('classes.create');
 Route::get('/Questions/Add', 'QuestionsController@create')->name('questions.create');
 Route::get('/Questions/Edit/{id}', 'QuestionsController@edit')->name('questions.edit');
+Route::get('/FQuestions/Edit/{id}', 'QuestionsController@fedit')->name('fquestions.edit');
 Route::get('/Questions/Delete/{id}', 'QuestionsController@destroy')->name('questions.delete');
+Route::get('/FQuestions/Delete/{id}', 'QuestionsController@fdestroy')->name('fquestions.delete');
 Route::post('/Questions/Update/{id}', 'QuestionsController@update')->name('questions.update');
 Route::get('/Questions/Manage', 'QuestionsController@index')->name('questions.index');
 Route::get('/Questions/All', 'QuestionsController@all')->name('questions.home');
 Route::post('/Questions/Filter', 'QuestionsController@filter')->name('questions.filter');
 Route::post('/Questions/Store', 'QuestionsController@store')->name('questions.store');
+Route::post('/FileQuestions/Store/{id}', 'QuestionsController@fupdate')->name('fquestionfile.store');
 Route::post('/Subjects/Store', 'SubjectsController@store')->name('subject.store');
 Route::post('/Classes/Store', 'ClassesController@store')->name('class.store');
 Route::get('/home', 'HomeController@index')->name('home');

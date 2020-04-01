@@ -30,7 +30,7 @@
             @endforeach
             <option>General</option>
         </select>
-      <button class="btn" style="background-color:#f9f9f9"><i class="fa fa-filter" style="color:red;font-size:30px"></i></button>
+      <button class="btn btn-success" style="background-color:#f9f9f9"><i class="fa fa-filter" style="color:red;font-size:30px">Filter</i></button>
     </form>
 </div>
 <div class="container-fluid">

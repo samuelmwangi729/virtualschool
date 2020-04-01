@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use App\Classes;
 use App\Question;
 use App\Topic;
@@ -174,6 +175,35 @@ class QuestionsController extends Controller
         Session::flash('success','Question Successfully Posted');
         return redirect()->back();
     }
+    public function fupdate(Request $request,$id)
+    {
+        $this->validate($request,[
+            'level'=>'required',
+            'class'=>'required',
+            'subject'=>'required',
+            'questionfile'=>'required',
+            'topic'=>'required'
+        ]);
+        if($request->has('questionfile')){
+            $file=$request->questionfile;
+            $newFileName=time().$file->getClientOriginalName();
+            $destination_path=public_path('/uploads');
+            $file->move($destination_path,$newFileName);
+        }
+        $question=fileQuestion::find($id);
+        if(is_null($question)|| $question->count()==0){
+            Session::flash('error','File Does Not Exist');
+            return redirect()->back();
+        }
+        $question->level=$request->level;
+        $question->class=$request->class;
+        $question->subject=$request->subject;
+        $question->questionfile=$newFileName;
+        $question->topic=$request->topic;
+        $question->save();       
+        Session::flash('success','Question Successfully Updated');
+        return redirect()->back();
+    }
 
     /**
      * Display the specified resource.
@@ -242,6 +272,19 @@ class QuestionsController extends Controller
         ->with('subjects',Subject::all())
         ->with('question',$question);
     }
+    public function fedit($id)
+    {
+        $question=FileQuestion::find($id);
+        if(is_null($question) || $question->count()==0){
+            Session::flash('error','The Question Does Not Exist');
+            return redirect()->back();
+        }
+        return view('Questions.fedit')
+        ->with('classes',Classes::all())
+        ->with('topics',Topic::all())
+        ->with('subjects',Subject::all())
+        ->with('question',$question);
+    }
 
     /**
      * Update the specified resource in storage.
@@ -289,6 +332,19 @@ class QuestionsController extends Controller
             return redirect()->back();
         }
         $question->destroy($id);
+        Session::flash('error','The Question Has been Deleted');
+        return redirect()->back();
+    }
+    public function fdestroy($id)
+    {
+        $question=FileQuestion::find($id);
+        if(is_null($question) || $question->count()==0){
+            Session::flash('error','The Question Does Not Exist');
+            return redirect()->back();
+        }
+        $question->destroy($id);
+       $path=asset('/uploads/'.$question->questionFile);
+        File::delete($path);
         Session::flash('error','The Question Has been Deleted');
         return redirect()->back();
     }

@@ -8,6 +8,7 @@ use App\Files;
 use App\Question;
 use App\Student;
 use App\Payment;
+use Auth;
 use App\Marked;
 
 class HomeController extends Controller
@@ -29,6 +30,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $output=str_split(Auth::user()->uid,5);
         $amount=Payment::all();
         $sum=0;
         foreach($amount as $amt){
@@ -36,6 +38,7 @@ class HomeController extends Controller
         }
         return view('home')
         ->with('files',Files::all()->count())
+        ->with('output',$output)
         ->with('students',Student::all()->count())
         ->with('amount',$sum)
         ->with('Marked',Marked::all()->count());

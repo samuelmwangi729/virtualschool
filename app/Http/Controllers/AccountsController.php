@@ -11,7 +11,8 @@ use App\User;
 class AccountsController extends Controller
 {
     public function index(){
-        return view('Account.account');
+        $output=str_split(Auth::user()->uid,5);
+        return view('Account.account')->with('output',$output);
     }
     public function update(Request $request){
         $this->validate($request,[

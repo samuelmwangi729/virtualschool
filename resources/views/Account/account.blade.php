@@ -10,7 +10,7 @@
                 Email/Phone:<b>{{Auth::user()->email}}</b>
             </div>
             <div class="col-sm-6 col-lg-6">
-                Unique Identifier:<b>{{Auth::user()->uid}}</b>
+                Unique Identifier:<b>{{$output[0]}}-{{$output[1]}}</b>
                 <br>
                 School Level:<b>{{Auth::user()->level}}</b>
                 <br>
