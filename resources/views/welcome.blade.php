@@ -32,8 +32,8 @@
                             <h5 class="hidden-sm hidden-md hidden-xs">Every Student Counts</h5> --}}
                             <h1>Making Your Childs
                                 Future Brighter</h1>
-                            <p>Shape the future of your child with our services. We provide revision
-                                papers at a low and affordable rate. <br>Get Started as a Student or register your institution
+                            <p>Shape the future of your child with our services. We provide Online Revision
+                                materials for free. <br>Get Started as a Student or register your institution
                             </p>
                         <a href="{{route('register')}}" class="btn_1">Student Registration </a>
                             <a href="{{route('institution')}}" class="btn_2">Institution Registration </a>
