@@ -17,7 +17,8 @@
         "mpdf/mpdf": "^8.0",
         "picqer/php-barcode-generator": "^2.0",
         "safaricom/mpesa": "^1.0",
-        "setasign/fpdf": "^1.8"
+        "setasign/fpdf": "^1.8",
+        "smodav/mpesa": "^5.0"
     },
     "require-dev": {
         "facade/ignition": "^1.4",
