@@ -101,4 +101,6 @@ Route::post('/Subscriber/Add', 'SubscribersController@store')->name('subscribe')
 Route::get('/TimeTable/View', 'TimeTableController@index')->name('timetable');
 Route::post('/CurrentWeek/Add', 'SettingsController@store')->name('settings.currentWeek');
 Route::post('/TimeTable/Add', 'TimeTableController@store')->name('timetable.post');
+Route::get('/Complaints/Add', 'ComplaintsController@index')->name('complaints.index');
+Route::post('/Complaints/Post', 'ComplaintsController@store')->name('complaint.post');
 Route::get('Payment/Test', 'TestController@index');

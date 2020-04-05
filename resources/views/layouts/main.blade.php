@@ -244,6 +244,19 @@
                 </ul>
                 </li>
             @endif
+            <li class="treeview">
+                  <a href="#">
+                      <i class="fa fa-times-circle"></i> <span>Complaints</span>
+                      <i class="fa fa-angle-left pull-right"></i>
+                  </a>
+                  <ul class="treeview-menu">
+                  <li><a href="{{route('complaints.index')}}"><i class="fa fa-plus-circle"></i>Open A Complaint</a></li>
+                  <li><a href="{{route('complaints.index')}}"><i class="fa fa-eye"></i>View Status</a></li>
+                      {{-- <li><a href="pages/examples/login.html"><i class="fa fa-picture-o"></i> Profile</a></li>
+                      <li><a href="pages/examples/register.html"><i class="fa fa-credit-card"></i> Payment Details</a></li>
+                      <li><a href="pages/examples/lockscreen.html"><i class="fa fa-print"></i> Payment History</a></li> --}}
+                  </ul>
+              </li>
               <li class="treeview">
                   <a href="#">
                       <i class="fa fa-gears"></i> <span>System Settings</span>
