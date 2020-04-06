@@ -22,6 +22,7 @@
                     <th>Email</th>
                     <th>Unique Identifier</th>
                     <th>School Name</th>
+                    <th>Status</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -33,10 +34,10 @@
                     <td>{{$user->uid}}</td>
                     <td>{{$user->schoolName}}</td>
                     @if(App\Suspend::where('id',$user->id)->get()->count()==1)
-                        <td><button class="btn btn-danger btn-xs">Suspended</button></td>
+                        <td><button class="btn btn-danger btn-xs disabled">Suspended</button></td>
                     @endif
                     @if(App\Suspend::where('id',$user->id)->get()->count()==0)
-                        <td><button class="btn btn-success btn-xs">Active</button></td>
+                        <td><button class="btn btn-success btn-xs disabled">Active</button></td>
                     @endif
                     @if(App\Suspend::where('id',$user->id)->get()->count()==0)
                     <td><a href="{{route('user.suspend',['uid'=>$user->id])}}" class="btn btn-danger btn-xs">Suspend Account</a></td>

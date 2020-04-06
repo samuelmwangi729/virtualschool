@@ -240,6 +240,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{route('users.index')}}" target="_parent"><i class="fa fa-wrench"></i>Manage Users</a></li>
+                    <li><a href="{{route('users.add')}}" target="_parent"><i class="fa fa-plus-circle"></i>Add Users</a></li>
                     {{-- <li><a href="pages/tables/data.html"><i class="fa fa-angle-double-right"></i>Print Results</a></li> --}}
                 </ul>
                 </li>
@@ -251,7 +252,7 @@
                   </a>
                   <ul class="treeview-menu">
                   <li><a href="{{route('complaints.index')}}"><i class="fa fa-plus-circle"></i>Open A Complaint</a></li>
-                  <li><a href="{{route('complaints.index')}}"><i class="fa fa-eye"></i>View Status</a></li>
+                  <li><a href="{{route('complaints.view')}}"><i class="fa fa-eye"></i>View Status</a></li>
                       {{-- <li><a href="pages/examples/login.html"><i class="fa fa-picture-o"></i> Profile</a></li>
                       <li><a href="pages/examples/register.html"><i class="fa fa-credit-card"></i> Payment Details</a></li>
                       <li><a href="pages/examples/lockscreen.html"><i class="fa fa-print"></i> Payment History</a></li> --}}

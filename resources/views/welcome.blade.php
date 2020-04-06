@@ -97,7 +97,7 @@
                 <div class="col-sm-6 col-xl-4 align-self-center">
                     <div class="single_feature_text ">
                         <h2><span style="color:#f1590d">{{ config('app.name') }} </span> <br> Pricing</h2>
-                        <p>With our cheap and affordable rates, we are here to help.
+                        <p>We charge a Monthly Subscription fees affordable by everyone.
                          </p>
                     </div>
                 </div>
@@ -105,9 +105,9 @@
                     <div class="single_feature">
                         <div class="single_feature_part">
                             <span class="single_feature_icon"><i class="fa fa-user"></i></span>
-                            <h4>Single Paper Marking</h4>
-                            <h4>Ksh .{{ App\Price::where('paperType','Single Paper')->get()->first()->Amount ?? 0 }} Per Paper </h4>
-                            <p>This is the price mostly charged by marking a single paper uploaded to our portal</p>
+                            <h4>For Individuals</h4>
+                            <h4>Ksh .2500 per Month </h4>
+                            <p>Renewable Monhly</p>
                         </div>
                     </div>
                 </div>
@@ -115,9 +115,9 @@
                     <div class="single_feature" id="pricing">
                         <div class="single_feature_part">
                             <span class="single_feature_icon"><i class="fa fa-users"></i></span>
-                            <h4>Bulk Papers Marking</h4>
-                            <h4>Ksh .{{ App\Price::where('paperType','Bulk Papers')->get()->first()->Amount ?? 0 }} Per Paper </h4>
-                            <p>With the education Institutions using our site, we offer a discount to them by reducing the price slightly</p>
+                            <h4>Institutions</h4>
+                            <h4>Ksh .2500  </h4>
+                            <p>Renewable Monthly</p>
                         </div>
                     </div>
                 </div>

@@ -16,7 +16,8 @@ class ComplaintsController extends Controller
      */
     public function index()
     {
-        return view('Complaints.index');
+        $complaints=Complaint::where('uid',Auth::user()->uid)->get();
+        return view('Complaints.view')->with('complaints',$complaints);
     }
 
     /**
@@ -26,7 +27,7 @@ class ComplaintsController extends Controller
      */
     public function create()
     {
-        //
+        return view('Complaints.index');
     }
 
     /**
@@ -84,7 +85,15 @@ class ComplaintsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $complaint=Complaint::find($id);
+        if(is_null($complaint) || $complaint->count()==0){
+            Session::flash('error','The Complaint Does Not Exist');
+            return redirect()->back();
+        }
+        $complaint->status=1;
+        $complaint->save();
+        Session::flash('success','the complaint has been successfully Completed');
+        return redirect()->back();
     }
 
     /**

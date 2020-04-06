@@ -92,21 +92,23 @@
 
 <!-- Main row -->
 <div class="row">
-    {{-- <!-- Left col -->
+    <!-- Left col -->
     <section class="col-lg-6 connectedSortable"> <!-- /.box -->        
         
        
                             
         <!-- Calendar -->
-        <div class="box box-warning">
-            <div class="box-header">
-                <i class="fa fa-calendar"></i>
-                <div class="box-title">Calendar</div>
+        <div class="small-box bg-red">
+            <div class="h3 box-header">
+                <i class="fa fa-money"></i>
+                <div class="box-title">Pricing</div>
                 
                 <!-- tools box -->
-                <div class="pull-right box-tools">
+                @if(Auth::user()->isInd==0)
+                <div class="small-box bg-green">
+                    <h2>For Institutions: Ksh. {{ App\Price::where('paperType','Bulk Papers')->get()->first()->Amount ?? 0 }} per Paper</h2>
                     <!-- button with a dropdown -->
-                    <div class="btn-group">
+                    {{-- <div class="btn-group">
                         <button class="btn btn-warning btn-sm dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i></button>
                         <ul class="dropdown-menu pull-right" role="menu">
                             <li><a href="#">Add new event</a></li>
@@ -114,8 +116,13 @@
                             <li class="divider"></li>
                             <li><a href="#">View calendar</a></li>
                         </ul>
-                    </div>
-                </div><!-- /. tools -->                                    
+                    </div> --}}
+                </div> 
+                @else
+                <div class="small-box bg-green">
+                    <h2>For Individuals: Ksh. {{ App\Price::where('paperType','Single Paper')->get()->first()->Amount ?? 0 }} Per Paper</h2>
+                </div>
+                @endif<!-- /. tools -->                                    
             </div><!-- /.box-header -->
             <div class="box-body no-padding">
                 <!--The calendar -->
@@ -127,7 +134,7 @@
     <section class="col-lg-6 connectedSortable">
        
 
-      <!-- quick email widget -->
+      {{-- <!-- quick email widget -->
       <div class="box box-info">
         <div class="box-header">
             <i class="fa fa-envelope"></i>
@@ -152,11 +159,11 @@
         </div>
         <div class="box-footer clearfix">
             <button class="pull-right btn btn-default" id="sendEmail">Send <i class="fa fa-arrow-circle-right"></i></button>
-        </div>
+        </div> --}}
     </div>
 
         <!-- TO DO List -->
-    </section><!-- right col --> --}}
+    </section><!-- right col -->
 </div><!-- /.row (main row) -->
 @endif
 @stop

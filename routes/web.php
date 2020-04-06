@@ -88,7 +88,9 @@ Route::post('/Answersheet/Print', 'QuestionsController@answers')->name('answers.
 Route::get('/Prices/Add', 'PriceController@index')->name('prices.all');
 Route::get('/Users/Index', 'UsersController@index')->name('users.index');
 Route::get('/Users/Suspend/{uid}', 'UsersController@suspend')->name('user.suspend');
+Route::get('/Users/Add', 'UsersController@create')->name('users.add');
 Route::get('/Users/Restore/{uid}', 'UsersController@destroy')->name('user.restore');
+Route::post('/Users/store', 'UsersController@store')->name('user.register');
 Route::post('/Prices/Store', 'PriceController@store')->name('prices.store');
 Route::get('/Prices/View', 'PriceController@show')->name('prices.view');
 Route::get('/Prices/Edit/{id}', 'PriceController@edit')->name('price.edit');
@@ -101,6 +103,8 @@ Route::post('/Subscriber/Add', 'SubscribersController@store')->name('subscribe')
 Route::get('/TimeTable/View', 'TimeTableController@index')->name('timetable');
 Route::post('/CurrentWeek/Add', 'SettingsController@store')->name('settings.currentWeek');
 Route::post('/TimeTable/Add', 'TimeTableController@store')->name('timetable.post');
-Route::get('/Complaints/Add', 'ComplaintsController@index')->name('complaints.index');
+Route::get('/Complaints/Add', 'ComplaintsController@create')->name('complaints.index');
+Route::get('/Complaints/View', 'ComplaintsController@index')->name('complaints.view');
 Route::post('/Complaints/Post', 'ComplaintsController@store')->name('complaint.post');
+Route::get('/Complaints/Complete/{id}', 'ComplaintsController@update')->name('complaint.update');
 Route::get('Payment/Test', 'TestController@index');

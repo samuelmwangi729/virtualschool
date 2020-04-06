@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Suspend;
 use Session;
+use Hash;
 class UsersController extends Controller
 {
     /**
@@ -19,6 +20,10 @@ class UsersController extends Controller
             'isAdmin'=>'0'
         ])->paginate(10);
         return view('Users.index')->with('users',$users);
+    }
+
+    public function create(){
+        return view('Users.create');
     }
 
     /**
@@ -43,7 +48,23 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $this->validate($request,[
+        //     'pname'=>'required'
+        // ]);
+        User::create([
+            'name' => $request->name,
+            'Gender' => $request->Gender,
+            'pname' => $request->pname,
+            'email' => $request->email,
+            'dob' => $request->dob,
+            'uid' => $request->uid,
+            'level' => $request->level,
+            'isInd'=>$request->isInd,
+            'schoolName' => $request->schoolName,
+            'password' => Hash::make($request->password),
+        ]);
+        Session::flash('success','User Successfully Added');
+        return redirect()->back();
     }
 
     /**
