@@ -5,6 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+                <span>In accordance to <a href="http://www.parliament.go.ke/sites/default/files/2017-05/Data_Protection_Bill_2018.pdf">Kenyan Data Protection Bill</a>, feel free to  register using Dummy Details except <b>phone/email</b></span>
                 <div class="card-header">
                     <span style="font-size:20px;font-weight:bold">{{ __('Register') }} to  
                         <span style="color:#f04d0c;font-weight:bold">

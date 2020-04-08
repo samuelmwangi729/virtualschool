@@ -4,6 +4,7 @@
 <div class="container" style="margin-top:80px">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            <span>In accordance to <a href="http://www.parliament.go.ke/sites/default/files/2017-05/Data_Protection_Bill_2018.pdf">Kenyan Data Protection Bill</a>, feel free to register using Dummy Details except <b>Phone/email</b></span>
             <div class="card">
                 <div class="card-header"><span style="font-size:20px;font-weight:bold">{{ __('Register') }} to <span style="color:#f04d0c;font-weight:bold">
                     {{ config('app.name') }}
@@ -69,7 +70,7 @@
                             <label for="name" class="col-md-12 col-form-label text-md-right">{{ __('School Phone Number/Email Address') }}</label>
 
                             <div class="col">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="email" placeholder="Enter the phone Number or Email" required autocomplete="name" autofocus>
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="email" placeholder="Enter the phone Number or Email" required autocomplete="name" autofocus title="the One you use to login">
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
