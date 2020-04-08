@@ -4,7 +4,7 @@
 <div class="container" style="margin-top:80px">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <span>In accordance to <a href="http://www.parliament.go.ke/sites/default/files/2017-05/Data_Protection_Bill_2018.pdf">Kenyan Data Protection Bill</a>, feel free to register using Dummy Details except <b>Phone/email</b></span>
+            <span>In accordance to <a href="http://www.parliament.go.ke/sites/default/files/2017-05/Data_Protection_Bill_2018.pdf">Kenyan Data Protection Bill</a>, feel free to register using Dummy Details except <b>Phone/email and the School</b></span>
             <div class="card">
                 <div class="card-header"><span style="font-size:20px;font-weight:bold">{{ __('Register') }} to <span style="color:#f04d0c;font-weight:bold">
                     {{ config('app.name') }}
