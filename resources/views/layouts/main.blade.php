@@ -200,7 +200,7 @@
                 <li><a href="pages/tables/data.html"><i class="fa fa-angle-double-right"></i>Print Results</a></li>
             </ul>
             </li> --}}
-            @if(Auth::user()->isAdmin)
+            @if(Auth::user()->isInd==2)
             <li class="treeview">
             <a href="#">
                 <i class="fa fa-check-circle"></i> <span>Marked Exams</span>
@@ -211,6 +211,8 @@
                 {{-- <li><a href="pages/tables/data.html"><i class="fa fa-angle-double-right"></i>Print Results</a></li> --}}
             </ul>
             </li>
+            @endif
+            @if(Auth::user()->isAdmin)
             <li class="treeview">
             <a href="#">
                 <i class="fa fa-money"></i> <span>Pricing</span>

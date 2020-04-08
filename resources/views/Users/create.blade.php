@@ -153,6 +153,7 @@
                              <select name="isInd" class="form-control">
                                  <option value="1">Individual</option>
                                  <option value="0">Institution</option>
+                                 <option value="2">Examiner</option>
                              </select>
                          </div>
                         <div class="form-group row">
