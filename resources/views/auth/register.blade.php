@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <span>feel free to  register using Dummy Details except <b>phone/email and the School</b></span>
+                <span>"Dummy Registration  Details accepted except <b>phone/email and the School</b>"</span>
                 <div class="card-header">
                     <span style="font-size:20px;font-weight:bold">{{ __('Register') }} to  
                         <span style="color:#f04d0c;font-weight:bold">
