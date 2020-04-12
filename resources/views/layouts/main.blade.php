@@ -1,6 +1,12 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
   @include('layouts.head')
+  <style>
+      .treeview-menu li a{
+        font-size: 12px !important;
+        font-family: 'Courier' !important;
+      }
+  </style>
 <body class="skin-black">
   <header class="header">
     <a class="navbar-brand logo" style="color:#f04d0c;font-weight:bold" href="{{route('index')}}"> 
@@ -22,7 +28,7 @@
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="glyphicon glyphicon-user"></i>
-                        <span> @if(Auth::user()->isInd == 0)
+                        <span style="font-family:'Courier New', Courier, monospace"> @if(Auth::user()->isInd == 0)
                             {{Auth::user()->schoolName}}
                             @else
                             {{Auth::user()->name}}
@@ -99,7 +105,7 @@
           <!-- search form -->
           <!-- /.search form -->
           <!-- sidebar menu: : style can be found in sidebar.less -->
-          <ul class="sidebar-menu">
+          <ul class="sidebar-menu" style="font-size:10px; font-family:'Courier New', Courier, monospace">
               @if(Auth::user()->isAdmin)
               <li class="active">
               <a href="{{route('home')}}">
@@ -115,10 +121,10 @@
                   </a>
                   <ul class="treeview-menu">
                     @if(Auth::user()->isAdmin)
-                        <li><a href="{{route('subject.create')}}"><i class="fa fa-plus"></i> Add Subject</a></li>
-                        <li><a href="/Subjects/Manage"><i class="fa fa-times-circle"></i> Manage Subjects</a></li>
+                        <li><a href="{{route('subject.create')}}" style="font-size:10px; font-family:'Courier New', Courier, monospace"><i class="fa fa-plus"></i> Add Subject</a></li>
+                        <li><a href="/Subjects/Manage" style="font-size:10px; font-family:'Courier New', Courier, monospace"><i class="fa fa-times-circle"></i> Manage Subjects</a></li>
                     @endif
-                        <li><a href="{{route('subject.all')}}"><i class="fa fa-eye"></i> View Subjects</a></li>
+                        <li><a href="{{route('subject.all')}}" style="font-size:10px; font-family:'Courier New', Courier, monospace"><i class="fa fa-eye"></i> View Subjects</a></li>
                   </ul>
               </li>
               <li class="treeview">
@@ -200,7 +206,7 @@
                 <li><a href="pages/tables/data.html"><i class="fa fa-angle-double-right"></i>Print Results</a></li>
             </ul>
             </li> --}}
-            @if(Auth::user()->isInd==2)
+            @if(Auth::user()->isInd==2 || Auth::user()->isAdmin)
             <li class="treeview">
             <a href="#">
                 <i class="fa fa-check-circle"></i> <span>Marked Exams</span>

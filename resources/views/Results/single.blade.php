@@ -37,11 +37,11 @@
            <div class="panel-body text-center">
             <div class="col-sm-4">
             <label for="subject" class="label-control">Subject</label>
-            <select name="subject" class="form-control">
-            <option>English</option>
-            <option>Kiswahili</option>
-            <option>Mathematics</option>
-            </select>
+            <select class="form-control"  name="subject">
+                @foreach($subjects as $subject)
+                <option>{{ $subject->subjectName }}</option>    
+                @endforeach
+                </select>
             </div>
              <div class="col-sm-4">
                <input type="text" class="form-control" placeholder="enter the student UniqueIdentifier" name="uid">

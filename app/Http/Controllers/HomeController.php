@@ -9,6 +9,7 @@ use App\Question;
 use App\Student;
 use App\Payment;
 use Auth;
+use App\User;
 use App\Marked;
 
 class HomeController extends Controller
@@ -41,6 +42,7 @@ class HomeController extends Controller
         ->with('output',$output)
         ->with('students',Student::all()->count())
         ->with('amount',$sum)
-        ->with('Marked',Marked::all()->count());
+        ->with('Marked',Marked::all()->count())
+        ->with('users',User::count());
     }
 }

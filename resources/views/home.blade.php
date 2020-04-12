@@ -132,7 +132,27 @@
     </section><!-- /.Left col -->
     <!-- right col (We are only adding the ID to make the widgets sortable)-->
     <section class="col-lg-6 connectedSortable">
-       
+       @if(Auth::user()->isAdmin)
+       <div class="col-lg-12 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-red">
+            <div class="inner">
+                <h3>
+                   {{ $users }}
+                </h3>
+                <p>
+                    Users
+                </p>
+            </div>
+            <div class="icon">
+                <i class="fa fa-users"></i>
+            </div>
+            <a href="{{ url('/Users/Index') }}" class="small-box-footer">
+                More info <i class="fa fa-arrow-circle-right"></i>
+            </a>
+        </div>
+    </div><!-- ./col -->
+       @endif
 
       {{-- <!-- quick email widget -->
       <div class="box box-info">
