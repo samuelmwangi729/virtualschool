@@ -24,10 +24,10 @@
 
                         <div class="form-group row">
                            <div class="col-sm-6">
-                            <label for="name" class="col-md-7 col-form-label text-md-right">{{ __('Registered By') }}</label>
+                            <label for="name" class="col-md-7 col-form-label text-md-right">{{ __('Registration Name') }}</label>
 
                             <div class="col">
-                                <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ Auth::user()->name }}" readonly autocomplete="name" autofocus>
+                                <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"  autocomplete="name" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">

@@ -22,6 +22,10 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </a>
+        @if(App\Registration::where('UniqueIdentifier','=',Auth::user()->uid)->get()[0]->Status)
+        @else
+        <span style="color:red;font-weight:bold;margin-top:20px !important">Account Not Registered</span> <a href="{{route('users.reg')}}" target="_parent" class="btn btn-danger" style="margin-top:10px">Register Here</a>
+        @endif
         <div class="navbar-right">
             <ul class="nav navbar-nav">
                 <!-- Messages: style can be found in dropdown.less-->                <!-- User Account: style can be found in dropdown.less -->
@@ -46,8 +50,12 @@
                                 @endif -
                                 @if(Auth::user()->isInd == 1)
                                 Individual
-                                @else
+                                @endif
+                                @if(Auth::user()->isInd == 0)
                                 Institution
+                                @endif
+                                @if(Auth::user()->isInd == 2)
+                                Examiner
                                 @endif
                                 <small>Member since:  {{ (Auth::user()->created_at)->toFormatteddateString() }}</small>
                             </p>
@@ -113,6 +121,11 @@
                   </a>
               </li>
               @endif
+              <li class="nav-link">
+                <a href="{{route('users.reg')}}">
+                <i class="fa fa-hand-o-down"></i> <span>Register Your Account</span>
+                    </a>
+                </li>
               <li class="treeview">
                   <a href="#">
                       <i class="fa fa-bar-chart-o"></i>
@@ -247,6 +260,7 @@
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
+                    <li><a href="{{route('users.request')}}" target="_parent"><i class="fa fa-wrench"></i>Registration Requests</a></li>
                     <li><a href="{{route('users.index')}}" target="_parent"><i class="fa fa-wrench"></i>Manage Users</a></li>
                     <li><a href="{{route('users.add')}}" target="_parent"><i class="fa fa-plus-circle"></i>Add Users</a></li>
                     {{-- <li><a href="pages/tables/data.html"><i class="fa fa-angle-double-right"></i>Print Results</a></li> --}}

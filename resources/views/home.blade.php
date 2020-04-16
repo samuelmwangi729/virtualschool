@@ -8,6 +8,9 @@
 @else
 <!-- Small boxes (Stat box) -->
 <div class="row">
+    <marquee style="color:red;font-weight:bold">For One to upload the AnswerSheet,Kindly Use a   n Android Application to 
+        Scan the Document, save it as a pdf and upload it to our site via the upload answersheet section. We recommend an Application called <b>Camscanner</b> which is available in the playstore
+    </marquee>
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
         <div class="small-box bg-aqua">

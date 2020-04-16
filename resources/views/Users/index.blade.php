@@ -49,9 +49,6 @@
                 @endforeach
             </tbody>
         </table>
-        <div class="pull-right">
-            {{ $users->links() }}
-        </div>
     </div>
 </div>
 @endsection

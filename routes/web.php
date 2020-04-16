@@ -108,3 +108,31 @@ Route::get('/Complaints/View', 'ComplaintsController@index')->name('complaints.v
 Route::post('/Complaints/Post', 'ComplaintsController@store')->name('complaint.post');
 Route::get('/Complaints/Complete/{id}', 'ComplaintsController@update')->name('complaint.update');
 Route::get('Payment/Test', 'TestController@index');
+Route::get('/Registration/About',[
+    'uses'=>'RegistrationController@index',
+    'as'=>'users.reg'
+]);
+Route::get('/Registration/All',[
+    'uses'=>'RegistrationController@all',
+    'as'=>'users.request'
+]);
+Route::post('/RegistrationCode/Add',[
+    'uses'=>'RegistrationController@store',
+    'as'=>'registration.register'
+]);
+Route::get('/Registration/Edit/{id}',[
+    'uses'=>'RegistrationController@edit',
+    'as'=>'transaction.edit'
+]);
+Route::get('/Registration/Approve/{id}',[
+    'uses'=>'RegistrationController@approve',
+    'as'=>'transaction.approve'
+]);
+Route::get('/Registration/Reject/{id}',[
+    'uses'=>'RegistrationController@reject',
+    'as'=>'transaction.reject'
+]);
+Route::post('/Registration/Update/{id}',[
+    'uses'=>'RegistrationController@update',
+    'as'=>'transaction.update'
+]);

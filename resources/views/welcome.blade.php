@@ -12,6 +12,9 @@
                 <div class="col-lg-6 col-xl-6">
                     <div class="banner_text">
                         <div class="banner_text_iner">
+                            <marquee style="color:red;font-weight:bold">For One to upload the AnswerSheet,Kindly Use an Android Application to 
+                                Scan the Document, save it as a pdf and upload it to our site via the upload answersheet section. We recommend an Application called <b>Camscanner</b> which is available in the playstore
+                            </marquee>
                             @if(Session::has('success'))
                             <div class="alert alert-success">
                                 <a href="#" class="close" data-dismiss="alert">&times;
