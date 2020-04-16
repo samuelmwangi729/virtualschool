@@ -22,7 +22,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </a>
-        @if(App\Registration::where('UniqueIdentifier','=',Auth::user()->uid)->get()[0]->Status)
+        @if(is_null(App\Registration::where('UniqueIdentifier','=',Auth::user()->uid)->get()[0]->Status==1))
         @else
         <span style="color:red;font-weight:bold;margin-top:20px !important">Account Not Registered</span> <a href="{{route('users.reg')}}" target="_parent" class="btn btn-danger" style="margin-top:10px">Register Here</a>
         @endif
