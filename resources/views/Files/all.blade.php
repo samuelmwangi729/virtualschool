@@ -7,8 +7,10 @@
 @endif
 @if(Auth::user()->isInd ==1)
 <div class="container">
+    @if(count(App\Registration::where('UniqueIdentifier','=',Auth::user()->uid)->get())==1)
     @if(App\Registration::where('UniqueIdentifier','=',Auth::user()->uid)->get()[0]->Status)
     <a href="{{route('files.upload')}}" class="fa fa-upload btn btn-warning">Upload A file</a>
+    @endif
     @else
     <marquee style="color:red">Kindly Pay the Registration Fees to be able to Upload the Answer sheet</marquee>
     @endif
@@ -16,8 +18,10 @@
 @endif
 @if(Auth::user()->isInd ==0)
 <div class="container">
-  @if(App\Registration::where('UniqueIdentifier','=',Auth::user()->uid)->get()[0]->Status)
-  <a href="{{route('marks.post')}}" class=" btn btn-success" target="_parent"><i class="fa fa-upload"></i> Upload AnswerSheets</a>
+    @if(count(App\Registration::where('UniqueIdentifier','=',Auth::user()->uid)->get())==1)
+    @if(App\Registration::where('UniqueIdentifier','=',Auth::user()->uid)->get()[0]->Status)
+    <a href="{{route('marks.post')}}" class=" btn btn-success" target="_parent"><i class="fa fa-upload"></i> Upload AnswerSheets</a>
+    @endif
   @else
  <marquee style="color:red"> Please Pay the Registration Fee to Be able to upload AnswerSheets</marquee>
   @endif

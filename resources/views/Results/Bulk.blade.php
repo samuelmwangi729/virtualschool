@@ -53,7 +53,7 @@
 </div>
 <div class="col-sm-3">
 <div class="form-group">
-    @if(App\Registration::where('UniqueIdentifier','=',Auth::user()->uid)->get()[0]->Status)
+    @if(count(App\Registration::where('UniqueIdentifier','=',Auth::user()->uid)->get())==1)
     <button type="submit" class="btn btn-success pull-left" style="margin-top:20px">Upload Files</button>
     @else 
         <marquee>Please Pay the Registration Fees to Upload the files</marquee>
