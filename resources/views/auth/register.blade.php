@@ -7,7 +7,7 @@
             <div class="card">
                 <span>"Dummy Registration  Details accepted except <b>phone/email and the School</b>"</span>
                 <div class="card-header">
-                    <span style="font-size:20px;font-weight:bold">{{ __('Register') }} to  
+                    <span style="font-size:20px;font-weight:bold">{{ __('Register') }} to
                         <span style="color:#f04d0c;font-weight:bold">
                              {{ config('app.name') }}
                         </span>
@@ -39,7 +39,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Gender') }}</label><br>
 
                             <div class="col">
-                                <div class="col">           
+                                <div class="col">
                                     <input type = "radio"
                                            name = "Gender"
                                            id = "male"
@@ -51,7 +51,7 @@
                                            id = "female"
                                            value = "female" />
                                     <label for = "female">Female</label>
-    
+
                                  </div>
                             </div>
                            </div>
@@ -74,7 +74,7 @@
                             <label for="name" class="col-md-12 col-form-label text-md-right">{{ __('Phone Number/Email') }}</label>
 
                             <div class="col">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="email" placeholder="Enter the phone Number or Email" required autocomplete="name" autofocus>
+                                <input id="name" type="number" class="form-control @error('name') is-invalid @enderror" name="email" placeholder="Enter the phone Number" required autocomplete="name" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -87,10 +87,10 @@
                         <div class="form-group row">
                             <div class="col-sm-6">
                              <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Birth Date') }}</label>
- 
+
                              <div class="col">
                                  <input id="name" type="date" class="form-control @error('name') is-invalid @enderror" name="dob" value="{{ old('name') }}" required autocomplete="name" autofocus>
- 
+
                                  @error('name')
                                      <span class="invalid-feedback" role="alert">
                                          <strong>{{ $message }}</strong>
@@ -100,10 +100,10 @@
                             </div>
                             <div class="col-sm-6">
                              <label for="name" class="col-md-6 col-form-label text-md-right">{{ __('Unique Identifier') }}</label>
- 
+
                              <div class="col">
                                  <input id="name" type="text" readonly class="form-control @error('name') is-invalid @enderror" name="uid" value="{{ strtoupper(Str::random(10))}}" required autocomplete="name" autofocus>
- 
+
                                  @error('name')
                                      <span class="invalid-feedback" role="alert">
                                          <strong>{{ $message }}</strong>
@@ -115,8 +115,8 @@
                          <div class="row">
                             <div class="col-sm-6">
                              <label for="name" class="col-md-6 col-form-label text-md-right">{{ __('Student Level') }}</label>
- 
-                             <div class="col">           
+
+                             <div class="col">
                                 <input type = "radio"
                                        name = "level"
                                        id = "secondary"
@@ -133,10 +133,10 @@
                             </div>
                             <div class="col-sm-6">
                              <label for="name" class="col-md-8 col-form-label text-md-right">{{ __('Name of The School') }}</label>
- 
+
                              <div class="col">
                                  <input id="name" type="text"  class="form-control @error('name') is-invalid @enderror" name="schoolName"  required autocomplete="name" autofocus>
- 
+
                                  @error('name')
                                      <span class="invalid-feedback" role="alert">
                                          <strong>{{ $message }}</strong>

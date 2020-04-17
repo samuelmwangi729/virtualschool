@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header"><a class="navbar-brand" style="color:#f04d0c;font-weight:bold" href="{{route('index')}}"> 
+                <div class="card-header"><a class="navbar-brand" style="color:#f04d0c;font-weight:bold" href="{{route('index')}}">
                     {{-- <img src="img/logo.png" alt="logo"> --}}
                     <span style="color:black !important">Login to</span> {{ config('app.name') }}
                  </a></div>
