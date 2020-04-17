@@ -47,7 +47,35 @@
         </div>
     </section>
     <!-- banner part start-->
-
+<section  id="timetable" class="feature_part">
+    <!--timetable -->
+<div class="container-fluid">
+    <h1 class="text-center">This Weeks Timetable</h1>
+    <table class="table table-condensed table-striped table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>Day</th>
+                <th>Date</th>
+                <th>Subject 1</th>
+                <th>Subject 2</th>
+                <th>Subject 3</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($timetables as $timetable)
+            <tr>
+                <td>{{ $timetable->Day }}</td>
+                <td>{{ $timetable->Date }}</td>
+                <td>{{ $timetable->Subject1 }}</td>
+                <td>{{ $timetable->Subject2 }}</td>
+                <td>{{ $timetable->Subject3 }}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
+<!--timetable end-->
+</section>
     <!-- feature_part start-->
     <section class="feature_part">
         <div class="container">
@@ -128,6 +156,43 @@
         </div>
     </section>
     </div>
+    <!--Start Marking -->
+    <div class="container-fluid">
+        <section class="feature_part">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-xl-4">
+                        <div class="single_feature">
+                            <div class="single_feature_part">
+                                <span class="single_feature_icon"><i class="fa fa-check-circle"></i></span>
+                                <h4>Per  One Week </h4>
+                                <h4>Ksh .300 </h4>
+                                <p>For all 18 Papers</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-4">
+                        <div class="single_feature" id="pricing">
+                            <div class="single_feature_part">
+                                <span class="single_feature_icon"><i class="fa fa-check-square"></i></span>
+                                <h4>Per Month</h4>
+                                <h4>Ksh .1200  </h4>
+                                <p>For all 72 Papers</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-4 align-self-center">
+                        <div class="single_feature_text ">
+                            <h2><span style="color:#f1590d">{{ config('app.name') }} </span> <br> Marking Prices</h2>
+                            <p>Ranking and Report Forms will be Available on Demand!!!
+                             </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </div>
+    <!--end Marking Prices -->
     <!-- member_counter counter start -->
     <section class="member_counter">
         <div class="container">

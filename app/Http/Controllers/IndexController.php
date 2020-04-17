@@ -5,9 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Subject;
 use App\{TimeTable,CurrentWeek};
-use Session;
 
-class TimeTableController extends Controller
+class IndexController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,9 +18,8 @@ class TimeTableController extends Controller
         $week=CurrentWeek::all()->last()->Week;
         $timetables=TimeTable::where('Week',$week)->get();
         // dd(json_encode($timetables));
-        return view('TimeTable.index')
-        ->with('timetables',$timetables)
-        ->with('subjects',Subject::all());
+        return view('welcome')
+        ->with('timetables',$timetables);
     }
 
     /**
@@ -42,22 +40,7 @@ class TimeTableController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'Week'=>'required',
-            'Subject1'=>'required',
-            'Subject2'=>'required',
-            'Subject3'=>'required'
-        ]);
-        TimeTable::create([
-            'Week'=>$request->Week,
-            'Day'=>$request->Day,
-            'Date'=>$request->Date,
-            'Subject1'=>$request->Subject1,
-            'Subject2'=>$request->Subject2,
-            'Subject3'=>$request->Subject3,
-        ]);
-        Session::flash('success','TimeTable Successfully Updated');
-        return redirect()->back();
+        //
     }
 
     /**

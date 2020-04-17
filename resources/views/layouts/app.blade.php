@@ -91,7 +91,7 @@
                                     <a class="dropdown-item" href="{{route('institution')}}">Institution</a>
                                     </div>
                                 </li>
-                                <li class="nav-item dropdown">
+                                {{-- <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Files
                                     </a>
@@ -100,6 +100,9 @@
                                         <a class="dropdown-item" href="#">Past Papers</a>
                                         <a class="dropdown-item" href="#">Others</a>
                                     </div>
+                                </li> --}}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{url('/#timetable')}}">TimeTable</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{url('/#contact')}}">Contact</a>

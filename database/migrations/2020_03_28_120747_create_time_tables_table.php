@@ -16,6 +16,8 @@ class CreateTimeTablesTable extends Migration
         Schema::create('time_tables', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('Week');
+            $table->string('Day');
+            $table->string('Date');
             $table->string('Subject1');
             $table->string('Subject2');
             $table->string('Subject3');

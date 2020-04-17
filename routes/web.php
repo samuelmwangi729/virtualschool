@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('index');
+Route::get('/','IndexController@index')->name('index');
 Auth::routes();
 Route::get('/fileQuestion',[
     'uses'=>'QuestionsController@file',
