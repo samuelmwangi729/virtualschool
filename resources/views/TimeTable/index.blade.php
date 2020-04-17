@@ -15,7 +15,7 @@
             </div>
         @endif
     <div class="well pull-left col-lg-9 col-sm-9">
-     <div class="container-fluid">
+     <div class="table-responsive">
          <table class="table table-condensed table-striped table-hover table-bordered">
              <thead>
                  <tr>
@@ -109,8 +109,8 @@
                     <div class="col-sm-4">
                         <button style="margin-top:50px" class="btn btn-success btn-block btn-sm">Submit</button>
                     </div>
-                </div> 
-            </fieldset>           
+                </div>
+            </fieldset>
         </form>
     </div>
 @endif

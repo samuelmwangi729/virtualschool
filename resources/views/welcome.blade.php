@@ -12,7 +12,7 @@
                 <div class="col-lg-6 col-xl-6">
                     <div class="banner_text">
                         <div class="banner_text_iner">
-                            <marquee style="color:red;font-weight:bold">For One to upload the AnswerSheet,Kindly Use an Android Application to 
+                            <marquee style="color:red;font-weight:bold">For One to upload the AnswerSheet,Kindly Use an Android Application to
                                 Scan the Document, save it as a pdf and upload it to our site via the upload answersheet section. We recommend an Application called <b>Camscanner</b> which is available in the playstore
                             </marquee>
                             @if(Session::has('success'))
@@ -49,7 +49,7 @@
     <!-- banner part start-->
 <section  id="timetable" class="feature_part">
     <!--timetable -->
-<div class="container-fluid">
+<div class="table-responsive">
     <h1 class="text-center">This Weeks Timetable</h1>
     <table class="table table-condensed table-striped table-hover table-bordered">
         <thead>
@@ -93,7 +93,7 @@
                         <div class="single_feature_part">
                             <span class="single_feature_icon"><i class="ti-layers"></i></span>
                             <h4>Better Future</h4>
-                            <p>By providing school resources to the students which are highly 
+                            <p>By providing school resources to the students which are highly
                                 applicable in real life situation</p>
                         </div>
                     </div>
@@ -137,7 +137,7 @@
                         <div class="single_feature_part">
                             <span class="single_feature_icon"><i class="fa fa-user"></i></span>
                             <h4>For Individuals</h4>
-                            <h4>Ksh .1000 per Month </h4>
+                            <h4>Ksh .1200 per Month </h4>
                             <p>Renewable Monthly</p>
                         </div>
                     </div>
@@ -269,7 +269,7 @@
                 <div class="col-sm-6 col-md-4 col-xl-3">
                     <div class="single-footer-widget footer_1">
                         <h4 style="color:#f1590d">{{config('app.name')}}</h4><br>
-                        <a class="navbar-brand" style="color:#f1590d;font-weight:bold" href="{{route('index')}}"> 
+                        <a class="navbar-brand" style="color:#f1590d;font-weight:bold" href="{{route('index')}}">
                             <img src="{{asset('img/logo/logo.png')}}" alt="VirtualSchool" width="50px" height="50px">
                          </a>
                         <p>We provide online solutions to testing and resources to ready educators at an affordable rate </p>
