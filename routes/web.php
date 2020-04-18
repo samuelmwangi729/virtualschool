@@ -134,3 +134,12 @@ Route::post('/Registration/Update/{id}',[
     'uses'=>'RegistrationController@update',
     'as'=>'transaction.update'
 ]);
+Route::get('/TimeTable/Edit/{id}',[
+    'uses'=>'TimeTableController@edit',
+    'as'=>'timetable.edit'
+]);
+
+Route::post('/TimeTable/UpdateDay/{id}',[
+    'uses'=>'TimeTableController@update',
+    'as'=>'timetable.update'
+]);

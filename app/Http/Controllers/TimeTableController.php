@@ -79,7 +79,14 @@ class TimeTableController extends Controller
      */
     public function edit($id)
     {
-        //
+        $timetable=TimeTable::find($id);
+        if(empty($timetable)){
+            Session::flash('error','No Such Dates Booked');
+            return redirect()->back();
+        }
+        return view('TimeTable.Edit')
+        ->with('subjects',Subject::all())
+        ->with('timetable',$timetable);
     }
 
     /**
@@ -91,7 +98,32 @@ class TimeTableController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'Day'=>'required',
+            'Date'=>'required',
+            'Subject1'=>'required',
+            'Subject2'=>'required',
+            'Subject3'=>'required'
+        ]);
+        $timetable=TimeTable::find($id);
+        if(empty($timetable)){
+            Session::flash('error','No Such Dates Booked');
+            return redirect()->back();
+        }
+
+        $timetable->Day=$request->Day;
+        $timetable->Date=$request->Date;
+        $timetable->Subject1=$request->Subject1;
+        $timetable->Subject2=$request->Subject2;
+        $timetable->Subject3=$request->Subject3;
+        $timetable->save();
+        Session::flash('success',"The timetable Has been Updated");
+        $week=CurrentWeek::all()->last()->Week;
+        $timetables=TimeTable::where('Week',$week)->get();
+        // dd(json_encode($timetables));
+        return view('TimeTable.index')
+        ->with('timetables',$timetables)
+        ->with('subjects',Subject::all());
     }
 
     /**

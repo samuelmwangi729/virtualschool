@@ -12,7 +12,7 @@
                 <div class="col-lg-6 col-xl-6">
                     <div class="banner_text">
                         <div class="banner_text_iner">
-                            <marquee style="color:red;font-weight:bold">For One to upload the AnswerSheet,Kindly Use an Android Application to
+                            <marquee style="background-color:black;color:white;font-weight:bold">For One to upload the AnswerSheets,Kindly Use an Android Application to
                                 Scan the Document, save it as a pdf and upload it to our site via the upload answersheet section. We recommend an Application called <b>Camscanner</b> which is available in the playstore
                             </marquee>
                             @if(Session::has('success'))
@@ -75,6 +75,17 @@
     </table>
 </div>
 <!--timetable end-->
+<section class="member_counter"  style="color:white;font-weight:bold;font-family:'Times New Roman', Times, serif' !important">
+    <div class="container-fluid">
+        {{ config('app.name') }}   IS AN ONLINE EDUCATION PLATFORM THAT FACILITATES AND AIDS THE USUAL LEARNING.
+        IT PROVIDES LEARNING RESOURCES FOR FREE EXCEPT IF YOU WANT YOUR WORK MARKED.
+        WE CHARGE Ksh. 17.00 PER PAPER FOR THREE PAPERS PER DAY 6 DAYS A WEEK FOR A WHOLE MONTH.
+        THE PAPERS ARE TIMETABLED AND DISPLAYED IN OUR WEBSITE. THAT TRANSLATES TO A TOTAL OF 18 PAPERS PER WEEK AND THREE PAPERS PER SUBJECT PER WEEK. WE ARE COVERING 6 SUBJECTS FOR NOW.
+        THE COMPULSORY SUBJECTS (MATHEMATICS ENGLISH AND KISWAHILI) AND SCIENCES (CHEMISTRY, BIOLOGY AND PHYSICS).
+        THE FEE CHARGED CATERS FOR MARKING BY PROFESSIONALS, UPLOADING RESULTS TO INDIVIDUAL STUDENT,
+         SECURE FILING AND STORAGE, ANALYSIS AND OTHER CHARGES THAT ARISE OUT OF HANDLING THE TESTS
+    </div>
+</section>
 </section>
     <!-- feature_part start-->
     <section class="feature_part">
