@@ -2,13 +2,19 @@
 
 
 @section('content')
+@if(Session::has('error'))
+<div class="alert alert-danger">
+<a href="#" class="close" data-dismiss="alert">&times;</a>
+{{ Session::get('error') }}
+</div>
+@endif
 @if(!is_null(App\Suspend::find(Auth::user()->id)))
     <h1 class="text-center"><i class="fa fa-exclamation-circle" style="color:red;font-size:40px"></i>Your Account has been suspended!!!<br>Contact the Administrator for help</h1>
     <span></span>
 @else
 <!-- Small boxes (Stat box) -->
 <div class="row">
-    <marquee style="color:red;font-weight:bold">For One to upload the AnswerSheet,Kindly Use a   n Android Application to 
+    <marquee style="color:red;font-weight:bold">For One to upload the AnswerSheet,Kindly Use a   n Android Application to
         Scan the Document, save it as a pdf and upload it to our site via the upload answersheet section. We recommend an Application called <b>Camscanner</b> which is available in the playstore
     </marquee>
     <div class="col-lg-3 col-xs-6">
@@ -96,16 +102,16 @@
 <!-- Main row -->
 <div class="row">
     <!-- Left col -->
-    <section class="col-lg-6 connectedSortable"> <!-- /.box -->        
-        
-       
-                            
+    <section class="col-lg-6 connectedSortable"> <!-- /.box -->
+
+
+
         <!-- Calendar -->
         <div class="small-box bg-red">
             <div class="h3 box-header">
                 <i class="fa fa-money"></i>
                 <div class="box-title">Pricing</div>
-                
+
                 <!-- tools box -->
                 @if(Auth::user()->isInd==0)
                 <div class="small-box bg-green">
@@ -120,12 +126,12 @@
                             <li><a href="#">View calendar</a></li>
                         </ul>
                     </div> --}}
-                </div> 
+                </div>
                 @else
                 <div class="small-box bg-green">
                     <h2>For Individuals: Ksh. {{ App\Price::where('paperType','Single Paper')->get()->first()->Amount ?? 0 }} Per Paper</h2>
                 </div>
-                @endif<!-- /. tools -->                                    
+                @endif<!-- /. tools -->
             </div><!-- /.box-header -->
             <div class="box-body no-padding">
                 <!--The calendar -->

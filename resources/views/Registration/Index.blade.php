@@ -21,7 +21,7 @@
                             <div class="single_feature_part">
                                 <span class="single_feature_icon"><i class="fa fa-user"></i></span>
                                 <h4>For Individuals</h4>
-                                <h4>Ksh .1000 per Month </h4>
+                                <h4>Ksh .1200 per Month </h4>
                                 <p>Renewable Monthly</p>
                             </div>
                         </div>

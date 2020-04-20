@@ -9,7 +9,7 @@
   </style>
 <body class="skin-black">
   <header class="header">
-    <a class="navbar-brand logo" style="color:#f04d0c;font-weight:bold" href="{{route('index')}}"> 
+    <a class="navbar-brand logo" style="color:#f04d0c;font-weight:bold" href="{{route('index')}}">
         {{-- <img src="img/logo.png" alt="logo"> --}}
         {{ config('app.name') }}
      </a>
@@ -25,7 +25,7 @@
         @if(count(App\Registration::where('UniqueIdentifier','=',Auth::user()->uid)->get())==1)
         @if(App\Registration::where('UniqueIdentifier','=',Auth::user()->uid)->get()[0]->Status)
         @else
-        <span style="color:red;font-weight:bold;margin-top:20px !important">Account Registration Pending</span> 
+        <span style="color:red;font-weight:bold;margin-top:20px !important">Account Registration Pending</span>
         @endif
         @else
         <span style="color:red;font-weight:bold;margin-top:20px !important">Account Not Registered</span> <a href="{{route('users.reg')}}" target="_parent" class="btn btn-danger" style="margin-top:10px">Register Here</a>
@@ -96,7 +96,7 @@
     </nav>
 </header>
 @if(!is_null(App\Suspend::find(Auth::user()->id)))
-   
+
 @else
 <div class="wrapper row-offcanvas row-offcanvas-left">
   <!-- Left side column. contains the logo and sidebar -->
@@ -231,6 +231,11 @@
             </a>
             <ul class="treeview-menu">
                 <li><a href="{{route('marked.post')}}" target="_parent"><i class="fa fa-check-circle"></i> Upload MarkedSheets</a></li>
+                <li><a href="{{route('marked.Single')}}" target="_parent"><i class="fa fa-eye"></i> View Marked Papers</a></li>
+                @if(Auth::user()->isAdmin==1 ||  Auth::user()->isInd==2)
+                <li><a href="{{route('markingscheme.add')}}" target="_parent"><i class="fa fa-plus"></i>Add  Marking Schemes</a></li>
+                @endif
+                <li><a href="{{route('markingscheme.index')}}" target="_parent"><i class="fa fa-check-circle"></i> Marking Schemes</a></li>
                 {{-- <li><a href="pages/tables/data.html"><i class="fa fa-angle-double-right"></i>Print Results</a></li> --}}
             </ul>
             </li>
@@ -305,7 +310,7 @@
                  {{ __('Logout') }}
              </a>
                 <a href="pages/calendar.html">
-                   
+
                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                          @csrf
                      </form></span>
@@ -340,8 +345,8 @@
       </section><!-- /.content -->
   </aside><!-- /.right-side -->
 </div>
-   
+
     </div>
-    @include('layouts.js') 
+    @include('layouts.js')
 </body>
 </html>

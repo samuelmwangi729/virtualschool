@@ -53,6 +53,7 @@ Route::get('/Topics/Delete/{id}', 'TopicsController@destroy')->name('topic.delet
 Route::get('/Files/All', 'FilesController@index')->name('files.all');
 Route::get('/Files/Home', 'FilesController@all')->name('files.view');
 Route::get('/Marked/Sheets', 'FilesController@marked')->name('files.marked');
+Route::get('/Marked/Single', 'FilesController@markedSingle')->name('marked.Single');
 Route::get('/Files/Upload', 'FilesController@create')->name('files.upload');
 Route::post('/Files/Store', 'FilesController@store')->name('files.store');
 Route::post('/Files/Store/Single', 'FilesController@sstore')->name('marked.sstore');
@@ -142,4 +143,17 @@ Route::get('/TimeTable/Edit/{id}',[
 Route::post('/TimeTable/UpdateDay/{id}',[
     'uses'=>'TimeTableController@update',
     'as'=>'timetable.update'
+]);
+Route::post('/MarkingScheme/Save/',[
+    'uses'=>'MarkingSchemesController@store',
+    'as'=>'MarkingScheme.store'
+]);
+Route::get('/MarkingScheme/View',[
+    'uses'=>'MarkingSchemesController@index',
+    'as'=>'markingscheme.index'
+]);
+
+Route::get('/MarkingScheme/Add',[
+    'uses'=>'MarkingSchemesController@create',
+    'as'=>'markingscheme.add'
 ]);

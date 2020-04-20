@@ -1,6 +1,10 @@
 {
     "editor.fontFamily": "'Times New Roman'",
     "editor.fontWeight": "bold",
-    "workbench.colorTheme": "Abyss",
-    "workbench.iconTheme": "vs-minimal"
+    "workbench.colorTheme": "Ambiance [beta]",
+    "workbench.iconTheme": "vs-minimal",
+    "terminal.explorerKind": "external",
+    "terminal.integrated.fontSize": 10,
+    "terminal.integrated.fontWeight": "100",
+    "terminal.integrated.fontWeightBold": "100"
 }

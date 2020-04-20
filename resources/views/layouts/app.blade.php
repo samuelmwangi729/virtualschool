@@ -58,7 +58,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-12" style="height:50px !important">
                     <nav class="navbar navbar-expand-sm navbar-light" style="margin-top:-20px">
-                    <a class="navbar-brand" style="color:#f04d0c;font-weight:bold" href="{{route('index')}}"> 
+                    <a class="navbar-brand" style="color:#f04d0c;font-weight:bold" href="{{route('index')}}">
                     <img src="{{asset('img/logo/logo.png')}}" alt="VirtualSchool" width="50px" height="50px">
                          </a>
                         <button class="navbar-toggler pull-right" type="button" data-toggle="collapse"
@@ -70,9 +70,9 @@
                         <div class="collapse navbar-collapse main-menu-item justify-content-end"
                             id="navbarSupportedContent">
                             <ul class="navbar-nav align-items-center">
-                                <li class="nav-item active">
+                                {{-- <li class="nav-item active">
                                     <a class="nav-link" href="{{route('index')}}"><i class="fa fa-home" style="font-size:20px;color:red"></i></a>
-                                </li>
+                                </li> --}}
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{url('/#about')}}">About</a>
                                 </li>

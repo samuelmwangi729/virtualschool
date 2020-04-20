@@ -20,7 +20,7 @@ class FilesController extends Controller
     {
         return view('Files.all');
     }
-   
+
     public function file(Request $request){
         $this->validate($request,[
             'level'=>'required',
@@ -40,7 +40,7 @@ class FilesController extends Controller
         dd($request->all());
     }
     /**
-     * Show the form for creating a new resource.                                                                                                                           
+     * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
@@ -83,7 +83,14 @@ class FilesController extends Controller
             return redirect()->back();
         }
     }
-
+public function markedSingle(){
+    $papers=Marked::where('belongsTo','=',Auth::user()->uid)->get();
+    if(count($papers)==0){
+        Session::flash('error','No papers Avaliable. Check Later');
+        return redirect()->back();
+    }
+    return view('Files.Marked')->with('papers',$papers);
+}
     public function store(Request $request)
     {
         $PaymentDetails=Payment::where('TransactionId',$request->TransactionCode)->take(1)->first();
