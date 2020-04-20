@@ -38,9 +38,9 @@
             <div class="col-sm-3">
                 <label for="subject" class="label-control">Subject</label><br>
                 <select name="subject" class="form-control">
-                    <option>English</option>
-                    <option>Kiswahili</option>
-                    <option>Mathematics</option>
+                    @foreach ($subjects as $subject)
+                    <option value="{{ $subject->subjectName }}">{{ $subject->subjectName }}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="col-sm-3">

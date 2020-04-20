@@ -9,6 +9,8 @@ use Auth;
 use App\Payment;
 use App\Marked;
 use App\Price;
+use App\Subject;
+use App\Registration;
 class FilesController extends Controller
 {
     /**
@@ -46,7 +48,8 @@ class FilesController extends Controller
      */
     public function create()
     {
-        return view('Files.create');
+        $subjects=Subject::all();
+        return view('Files.create')->with('subjects',$subjects);
     }
 
     /**
@@ -96,10 +99,13 @@ public function markedSingle(){
         $PaymentDetails=Payment::where('TransactionId',$request->TransactionCode)->take(1)->first();
         $Prices=Price::where('PaperType','Single Paper')->first();
         $AmountNeeded=$Prices->Amount;
-        if($PaymentDetails->Amount !=  $AmountNeeded){
+        if($PaymentDetails->Amount <  $AmountNeeded){
             Session::flash('error','Please Pay the Exact Amount for your Paper to be Uploaded,Needed Ksh.'. $AmountNeeded);
             return redirect()->back();
         }
+        $PaidAmount=$PaymentDetails->Amount;
+        $PaymentDetails->Amount=$PaidAmount-$Prices->Amount;
+        $PaymentDetails->save();
         $this->validate($request,[
             'file'=>'required',
             'subject'=>'required'
