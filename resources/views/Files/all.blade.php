@@ -5,6 +5,12 @@
 <Strong>No Files Uploaded&nbsp;&nbsp;</Strong>
 </div>
 @endif
+@if(Session::has('error'))
+<div class="alert alert-danger">
+    <a href="#" class="close" data-dismiss="alert">&times;</a>
+    {{ Session::get('error') }}
+</div>
+@endif
 @if(Auth::user()->isInd ==1)
 <div class="container">
     @if(count(App\Registration::where('UniqueIdentifier','=',Auth::user()->uid)->get())==1)

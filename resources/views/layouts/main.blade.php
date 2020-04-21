@@ -22,7 +22,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </a>
-       @if(Auth::user()->isAdmin  || Auth::user()->isInd==2)
+       @if(Auth::user()->isAdmin==1  || Auth::user()->isInd==2)
        @else
        @if(count(App\Registration::where('UniqueIdentifier','=',Auth::user()->uid)->get())==1)
        @if(App\Registration::where('UniqueIdentifier','=',Auth::user()->uid)->get()[0]->Status)

@@ -97,7 +97,16 @@ public function markedSingle(){
     public function store(Request $request)
     {
         $PaymentDetails=Payment::where('TransactionId',$request->TransactionCode)->take(1)->first();
+        if(is_null($PaymentDetails)){
+            Session::flash('error','Transaction code does not exist,Contact Us for support');
+            return redirect()->back();
+        }
+        // dd($PaymentDetails);
         $Prices=Price::where('PaperType','Single Paper')->first();
+        if(is_null($Prices)){
+            Session::flash('error','Marking Prices have not been set. Please try again later');
+            return redirect()->back();
+        }
         $AmountNeeded=$Prices->Amount;
         if($PaymentDetails->Amount <  $AmountNeeded){
             Session::flash('error','Please Pay the Exact Amount for your Paper to be Uploaded,Needed Ksh.'. $AmountNeeded);
