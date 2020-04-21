@@ -22,15 +22,18 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </a>
-        @if(count(App\Registration::where('UniqueIdentifier','=',Auth::user()->uid)->get())==1)
-        @if(App\Registration::where('UniqueIdentifier','=',Auth::user()->uid)->get()[0]->Status)
-        @else
-        <span style="color:red;font-weight:bold;margin-top:20px !important">Account Registration Pending</span>
-        @endif
-        @else
-        <span style="color:red;font-weight:bold;margin-top:20px !important">Account Not Registered</span> <a href="{{route('users.reg')}}" target="_parent" class="btn btn-danger" style="margin-top:10px">Register Here</a>
-        @endif
-        <div class="navbar-right">
+       @if(Auth::user()->isAdmin)
+       @else
+       @if(count(App\Registration::where('UniqueIdentifier','=',Auth::user()->uid)->get())==1)
+       @if(App\Registration::where('UniqueIdentifier','=',Auth::user()->uid)->get()[0]->Status)
+       @else
+       <span style="color:red;font-weight:bold;margin-top:20px !important">Account Registration Pending</span>
+       @endif
+       @else
+       <span style="color:red;font-weight:bold;margin-top:20px !important">Account Not Registered</span> <a href="{{route('users.reg')}}" target="_parent" class="btn btn-danger" style="margin-top:10px">Register Here</a>
+       @endif
+       @endif
+       <div class="navbar-right">
             <ul class="nav navbar-nav">
                 <!-- Messages: style can be found in dropdown.less-->                <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
@@ -125,11 +128,14 @@
                   </a>
               </li>
               @endif
+              @if(Auth::user()->isAdmin || Auth::user()->isInd==2)
+              @else
               <li class="nav-link">
                 <a href="{{route('users.reg')}}">
                 <i class="fa fa-hand-o-down"></i> <span>Register Your Account</span>
                     </a>
                 </li>
+              @endif
               <li class="treeview">
                   <a href="#">
                       <i class="fa fa-bar-chart-o"></i>
