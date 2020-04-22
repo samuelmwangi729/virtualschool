@@ -26,7 +26,7 @@
                     <th>UniqueIdentifier</th>
                     <th>User Type</th>
                     <th>Status</th>
-                    <th>Actions</th>
+                    <th class="text-center">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -49,8 +49,8 @@
                         Pending
                         @endif
                     </td>
-                    <td><a href="{{ route('transaction.edit',[$request->id]) }}" class="btn btn-primary btn-xs">Edit</a>&nbsp;<a href="{{ route('transaction.approve',[$request->id]) }}" class="btn btn-success btn-xs">Approve</a>&nbsp;<a href="{{ route('transaction.reject',[$request->id]) }}" class="btn btn-danger btn-xs">Reject</a></td>
-                </tr>                    
+                    <td class="text-center"><a href="{{ route('transaction.edit',[$request->id]) }}" class="fa fa-edit btn btn-primary btn-xs">Edit</a>&nbsp;<a href="{{ route('transaction.approve',[$request->id]) }}" class=" fa fa-check-circle btn btn-success btn-xs">Approve</a>&nbsp;<a href="{{ route('transaction.reject',[$request->id]) }}" class="fa fa-times-circle btn btn-danger btn-xs">Reject</a>&nbsp;<a href="{{ route('transaction.delete',[$request->id]) }}" class="fa fa-trash-o btn btn-danger btn-xs">Delete</a></td>
+                </tr>
                 @endforeach
             </tbody>
         </table>

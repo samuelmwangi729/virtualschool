@@ -114,7 +114,14 @@ class PaymentsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $payments=Payment::find($id);
+        if(is_null($payments) || empty($payments)){
+            Session::flash('error','the Transaction does  not exist');
+            return redirect()->back();
+        }
+        $payments->destroy($id);
+        Session::flash('error','Transaction successfully deleted');
+        return back();
     }
     public function showAll(){
         return view('Payments.all')->with('payments',Payment::all());

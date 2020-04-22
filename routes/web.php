@@ -100,6 +100,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/Payments/Store', 'PaymentsController@store')->name('payments.store');
     Route::get('/Payments/Home/All', 'PaymentsController@showAll')->name('payments.all');
     Route::get('/Payments/Print', 'PaymentsController@Print')->name('payments.print');
+    Route::get('/Payments/Delete/{id}', 'PaymentsController@destroy')->name('payments.delete');
     Route::post('/Subscriber/Add', 'SubscribersController@store')->name('subscribe');
     Route::get('/TimeTable/View', 'TimeTableController@index')->name('timetable');
     Route::post('/CurrentWeek/Add', 'SettingsController@store')->name('settings.currentWeek');
@@ -124,6 +125,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/Registration/Edit/{id}',[
         'uses'=>'RegistrationController@edit',
         'as'=>'transaction.edit'
+    ]);
+    Route::get('/Registration/Delete/{id}',[
+        'uses'=>'RegistrationController@destroy',
+        'as'=>'transaction.delete'
     ]);
     Route::get('/Registration/Approve/{id}',[
         'uses'=>'RegistrationController@approve',

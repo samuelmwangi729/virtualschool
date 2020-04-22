@@ -142,4 +142,14 @@ class RegistrationController extends Controller
         return redirect(route('users.request'));
 
     }
+    public function destroy($id){
+        $transaction=Registration::find($id);
+        if(empty($transaction)){
+            Session::flash("error","Transaction Not Found");
+            return redirect()->back();
+        }
+        $transaction->destroy($id);
+        Session::flash('error','Transaction Successfully Deleted');
+        return redirect()->back();
+    }
 }

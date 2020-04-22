@@ -4,7 +4,8 @@
     "workbench.colorTheme": "Ambiance [beta]",
     "workbench.iconTheme": "vs-minimal",
     "terminal.explorerKind": "external",
-    "terminal.integrated.fontSize": 10,
-    "terminal.integrated.fontWeight": "100",
-    "terminal.integrated.fontWeightBold": "100"
+    "terminal.integrated.fontWeight": "bold",
+    "terminal.integrated.fontWeightBold": "normal",
+    "terminal.integrated.fontFamily": "'Times New Roman'",
+    "files.autoSave": "onWindowChange"
 }
