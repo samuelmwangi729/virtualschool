@@ -22,7 +22,10 @@
         <div class="container-fluid">
             <div class="well">
                 <h2 class="text-center" style="font-weight:bold;">Account Status</h2>
+                @if(Auth::user()->isAdmin || count(App\Registration::where('UniqueIdentifier','=',Auth::user()->uid)->get())==1 )
+                @else
                 <br><span style="color:red;font-weight:bold;font-family:courier;font-size:30px"><marquee>Registration Fees Not Paid</marquee></span><br>
+                @endif
             </div>
         </div>
         <div class="container-fluid">
