@@ -42,7 +42,7 @@
                     <th>School Level</th>
                     <th>Class</th>
                     <th>Question Paper</th>
-                    <th>Topic</th>
+                    <th>Subject</th>
                    @if(Auth::user()->isAdmin==1)
                    <th>Action</th>
                    @endif
@@ -54,7 +54,7 @@
                <td>{{$question->level}}</td>
                <td>{{$question->class}}</td>
                <td><a href="{{asset('/uploads/'.$question->questionFile)}}">Download the File</a></td>
-               <td>{{$question->topic}}</td>
+               <td>{{$question->subject}}</td>
               @if(Auth::user()->isAdmin==1)
               <td><a href="{{route('fquestions.edit',['id'=>$question->id])}}" class="fa fa-edit btn btn-primary btn-xs">Edit</a>&nbsp;&nbsp;<a href="{{route('fquestions.delete',['id'=>$question->id])}}" class="fa fa-times btn btn-danger btn-xs" >Delete</a></td>
               @endif

@@ -39,7 +39,7 @@
         <table id="example1" class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>School Level</th>
+                    <th>Subject</th>
                     <th>Class</th>
                     <th>question</th>
                     <th>Topic</th>
@@ -49,7 +49,7 @@
             <tbody>
                @foreach($questions as $question)
                <tr>
-               <td>{{$question->level}}</td>
+               <td>{{$question->subject}}</td>
                <td>{{$question->class}}</td>
                <td>{{$question->question}}</td>
                <td>{{$question->topic}}</td>
@@ -60,7 +60,7 @@
             <tfoot>
                 <tr>
                     <tr>
-                        <th>School Level</th>
+                        <th>Subject</th>
                         <th>Class</th>
                         <th>question</th>
                         <th>Topic</th>
