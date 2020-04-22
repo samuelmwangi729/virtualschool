@@ -35,7 +35,6 @@
                     <th>Id</th>
                     <th>TransactionId</th>
                     <th>UniqueIdentifier</th>
-                    <th>User Type</th>
                     <th>Status</th>
                     <th class="text-center">Actions</th>
                 </tr>
@@ -45,16 +44,6 @@
                     <td>{{ $request->id }}</td>
                     <td>{{ $request->TransactionId }}</td>
                     <td>{{ $request->UniqueIdentifier }}</td>
-                    <td>
-                        @if(is_null(App\User::where('uid','=',$request->UniqueIdentifier)->get()->take(1)[0]->isInd==0))
-                        @else
-                            @if(App\User::where('uid','=',$request->UniqueIdentifier)->get()->take(1)[0]->isInd==0)
-                            Institution
-                            @else
-                            Individual
-                            @endif
-                        @endif
-                    </td>
                     <td>
                         @if($request->Status==1)
                         Approved
