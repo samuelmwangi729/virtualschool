@@ -31,7 +31,6 @@
              @else
              <thead>
                 <tr>
-                    <th>Id</th>
                     <th>TransactionId</th>
                     <th>UniqueIdentifier</th>
                     <th>Status</th>
@@ -41,7 +40,6 @@
              @foreach ($requests as $request)
             <tbody>
                 <tr>
-                    <td>{{ $request->id }}</td>
                     <td>{{ $request->TransactionId }}</td>
                     <td>{{ $request->UniqueIdentifier }}</td>
                     <td>
