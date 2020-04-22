@@ -46,10 +46,13 @@
                     <td>{{ $request->TransactionId }}</td>
                     <td>{{ $request->UniqueIdentifier }}</td>
                     <td>
-                        @if(App\User::where('uid','=',$request->UniqueIdentifier)->get()->take(1)[0]->isInd==0)
-                        Institution
+                        @if(is_null(App\User::where('uid','=',$request->UniqueIdentifier)->get()->take(1)[0]->isInd==0))
                         @else
-                        Individual
+                            @if(App\User::where('uid','=',$request->UniqueIdentifier)->get()->take(1)[0]->isInd==0)
+                            Institution
+                            @else
+                            Individual
+                            @endif
                         @endif
                     </td>
                     <td>
