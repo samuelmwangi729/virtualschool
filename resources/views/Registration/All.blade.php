@@ -29,7 +29,6 @@
                      </td>
                  </tr>
              @else
-             @foreach ($requests as $request)
              <thead>
                 <tr>
                     <th>Id</th>
@@ -39,6 +38,7 @@
                     <th class="text-center">Actions</th>
                 </tr>
             </thead>
+             @foreach ($requests as $request)
             <tbody>
                 <tr>
                     <td>{{ $request->id }}</td>
