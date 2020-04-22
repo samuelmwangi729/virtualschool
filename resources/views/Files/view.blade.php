@@ -5,6 +5,7 @@
         <thead>
             <th>Filename</th>
             <th>Uploaded By</th>
+            <th>SUbject</th>
             <th>Student , School</th>
             <th>Action</th>
         </thead>
@@ -18,7 +19,10 @@
                     {{ $file->uploadedBy }}
                 </td>
                 <td>
-                    {{ 
+                    {{ $file->Subject }}
+                </td>
+                <td>
+                    {{
                     $file->BelongsTo
                     }}
                 </td>
