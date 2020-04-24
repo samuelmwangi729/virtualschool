@@ -12,6 +12,14 @@
                 <div class="col-lg-6 col-xl-6">
                     <div class="banner_text">
                         <div class="banner_text_iner">
+                            @if(Session::has('error'))
+                            <div class="alert alert-danger">
+                                <a href="#" class="close" data-dismiss="alert">&times;
+
+                                </a>
+                                    {{ Session::get('error') }}
+                            </div>
+                            @endif
                             <marquee style="background-color:black;color:white;font-weight:bold">For One to upload the AnswerSheets,Kindly Use an Android Application to
                                 Scan the Document, save it as a pdf and upload it to our site via the upload answersheet section. We recommend an Application called <b>Camscanner</b> which is available in the playstore
                             </marquee>
@@ -21,14 +29,6 @@
 
                                 </a>
                                     {{ Session::get('success') }}
-                            </div>
-                            @endif
-                            @if(Session::has('error'))
-                            <div class="alert alert-danger">
-                                <a href="#" class="close" data-dismiss="alert">&times;
-
-                                </a>
-                                    {{ Session::get('error') }}
                             </div>
                             @endif
                             {{-- <h5 style="margin-top:100px" class="hidden-lg">Every Student Counts</h5>

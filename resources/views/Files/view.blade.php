@@ -1,6 +1,18 @@
 @extends('layouts.main')
 @section('content')
 <div class="table-responsive">
+    @if(Session::has('error'))
+    <div class="alert alert-danger">
+        <a href="#" class="close" data-dismiss="alert">&timesbar;</a>
+        {{ Session::get('error') }}
+    </div>
+    @endif
+    @if(Session::has('success'))
+    <div class="alert alert-success">
+        <a href="#" class="close" data-dismiss="alert">&timesbar;</a>
+        {{ Session::get('success') }}
+    </div>
+    @endif
     <table class="table table-striped table-hover">
         <thead>
             <th>Filename</th>
@@ -27,7 +39,7 @@
                     }}
                 </td>
                 <td>
-                    <i class="fa fa-pencil"></i>&nbsp;<i class="fa fa-eye"></i>&nbsp;<i class="fa fa-trash-o"></i>&nbsp;
+                    <a href="{{ route('file.edit',[$file->id]) }}" class="btn btn-xs btn-primary fa fa-pencil"></a>&nbsp; <a href="{{ route('file.delete',[$file->id]) }}" class="btn btn-xs btn-danger fa fa-trash-o"></a>&nbsp;
                 </td>
             </tr>
             @endforeach

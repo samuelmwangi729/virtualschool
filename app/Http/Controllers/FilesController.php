@@ -209,7 +209,31 @@ public function markedSingle(){
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'Answersheet'=>'required'
+        ]);
+        $file=$request->file('Answersheet');
+        $newName=time().$file->getClientOriginalName();
+        $file->move('uploads/',$newName);
+        $file=Files::find($id)->first();
+        if(is_null($file)|| $file->count()==0){
+            Session::flash('error','File Not Found');
+            return back();
+        }
+        $file->fileName=$newName;
+        $file->save();
+        Session::flash('success','File Successfully Edited');
+        if(Auth::user()->isAdmin==1){
+            $files=Files::where('id','>=','1')->paginate(10);
+        }else if(Auth::user()->isInd==1){
+            $files=Files::where('uploadedBy',Auth::user()->name)->paginate(10);
+        }
+        else{
+            $files=Files::where('BelongsTo',Auth::user()->schoolName)->paginate(10);
+        }
+        // dd(response()->json($files, 200));
+        return redirect(route('files.view'))->with('files',$files);
+
     }
 
     /**
@@ -220,6 +244,23 @@ public function markedSingle(){
      */
     public function destroy($id)
     {
-        //
+        $file=Files::find($id)->first();
+        if(is_null($file)|| $file->count()==0){
+            Session::flash('error','File Not Found');
+            return back();
+        }
+        $file->destroy($id);
+        Session::flash('error','file Successfully Deleted');
+        return redirect()->back();
+    }
+    public function sshow($id)
+    {
+        $file=Files::find($id)->first();
+        if(is_null($file)|| $file->count()==0){
+            Session::flash('error','File Not Found');
+            return back();
+        }
+        return view('Files.Edit')->with('file',$file);
     }
 }
+

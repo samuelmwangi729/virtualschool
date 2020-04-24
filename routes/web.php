@@ -15,7 +15,7 @@ Route::get('/','IndexController@index')->name('index');
 Auth::routes();
 Route::get('/Institution/Register', 'RegisterController@index')->name('institution');
 
-Route::group(['middleware' => ['auth']], function () {
+Route::group(['middleware' => ['auth','suspended']], function () {
     Route::get('/fileQuestion',[
         'uses'=>'QuestionsController@file',
         'as'=>'files.file'
@@ -54,6 +54,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/Topics/Delete/{id}', 'TopicsController@destroy')->name('topic.delete');
     Route::get('/Files/All', 'FilesController@index')->name('files.all');
     Route::get('/Files/Home', 'FilesController@all')->name('files.view');
+    Route::get('/Files/Edit/{id}', 'FilesController@sshow')->name('file.edit');
+    Route::get('/Files/Delete/{id}', 'FilesController@destroy')->name('file.delete');
+    Route::post('/Files/Update/{id}', 'FilesController@update')->name('file.update');
     Route::get('/Marked/Sheets', 'FilesController@marked')->name('files.marked');
     Route::get('/Marked/Single', 'FilesController@markedSingle')->name('marked.Single');
     Route::get('/Files/Upload', 'FilesController@create')->name('files.upload');
