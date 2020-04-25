@@ -39,7 +39,7 @@
                     }}
                 </td>
                 <td>
-                    <a href="{{ route('file.edit',[$file->id]) }}" class="btn btn-xs btn-primary fa fa-pencil"></a>&nbsp; <a href="{{ route('file.delete',[$file->id]) }}" class="btn btn-xs btn-danger fa fa-trash-o"></a>&nbsp;
+                    <a href="{{ route('file.edit',[$file->id]) }}" class="btn btn-xs btn-primary fa fa-pencil"></a>&nbsp; @if(Auth::user()->isAdmin)<a href="{{ route('file.delete',[$file->id]) }}" class="btn btn-xs btn-danger fa fa-trash-o"></a>@endif&nbsp;
                 </td>
             </tr>
             @endforeach
