@@ -15,11 +15,12 @@ class IndexController extends Controller
      */
     public function index()
     {
-        $week=CurrentWeek::all()->last()->Week;
-        $timetables=TimeTable::where('Week',$week)->get();
-        // dd(json_encode($timetables));
-        return view('welcome')
-        ->with('timetables',$timetables);
+        // $week=CurrentWeek::all()->last()->Week;
+        // $timetables=TimeTable::where('Week',$week)->get();
+        // // dd(json_encode($timetables));
+        // return view('welcome')
+        // ->with('timetables',$timetables);
+        return view('bleach');
     }
 
     /**
