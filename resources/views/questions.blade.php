@@ -231,7 +231,8 @@ table th[class*="col-"] {
     <tr>
     <td><?php echo $count;?>.</td>
     <td>{!! $question->question !!}</td>
-    <td>({{$question->marks}} Mks)</td>
+    <td>({{$question->marks."Mks"}})</td>
+    <br>
     <?php $count=$count+1;?>
     </tr>
 @endforeach

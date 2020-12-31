@@ -25,6 +25,24 @@
 
 <!-- AdminLTE App -->
 <script src="{{asset('js/AdminLTE/app.js')}}" type="text/javascript"></script>
+<script src="{{ asset('plugins/summernote/summernote-bs4.min.js') }}"></script>
+<script>
+    $(function () {
+      // Summernote
+      $('#summernote').summernote({
+        height: 550
+      })
+      $('#summernote1').summernote({
+        height: 120
+      })
+      $('#summernote2').summernote({
+        height: 120
+      })
 
-{{-- <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{asset('js/AdminLTE/dashboard.js')}}" type="text/javascript"></script>   --}}
+      // CodeMirror
+      CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+        mode: "htmlmixed",
+        theme: "monokai"
+      });
+    })
+  </script>

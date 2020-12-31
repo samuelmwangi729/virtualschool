@@ -55,7 +55,7 @@
 <body>
     <div id="app" style="margin-top:-20px">
     <header class="main_menu home_menu" >
-        <div class="container">
+        <div class="container-fluid">
             <div class="row align-items-center">
                 <div class="col-lg-12" style="height:50px !important">
                     <nav class="navbar navbar-expand-sm navbar-light" style="margin-top:-20px">

@@ -20,6 +20,9 @@ Route::group(['middleware' => ['auth','suspended']], function () {
         'uses'=>'QuestionsController@file',
         'as'=>'files.file'
     ]);
+    Route::resource('records','RecordsController');
+    Route::resource('lessons','LessonsController');
+    Route::resource('schemes','SchemesController');
     Route::get('/Subjects/Manage', 'SubjectsController@index')->name('subject.home');
     Route::get('/Subjects/edit/{id}', 'SubjectsController@edit')->name('subject.edit');
     Route::get('/Subjects/destroy/{id}', 'SubjectsController@destroy')->name('subject.delete');

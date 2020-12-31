@@ -61,8 +61,11 @@
                         <option>General</option>
                      </select>
                 </div>
-                <div class="col-sm-12"><br><br><br>
-                    <textarea class="textarea" placeholder="Type your question here" name="question" style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                <div class="col-sm-12">
+                    <label for="Question" class="label-control">
+                        Question
+                    </label>
+                    <textarea class="textarea" id="summernote" placeholder="Type your question here" name="question"></textarea>
                 </div>
             </div>
         </fieldset>
