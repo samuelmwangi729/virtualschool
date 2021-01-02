@@ -16,6 +16,12 @@
                 {{Session::get('success') }}
             </div>
             @endif
+            @if(Session::has('error'))
+            <div class="alert alert-danger">
+                <a href="#" class="close" data-dismiss="alert">&times;</a>
+                {{Session::get('error') }}
+            </div>
+            @endif
             <form action="{{route('records.store')}}" method="post">
                 @csrf
                 <div class="row">
@@ -159,8 +165,8 @@
                             <td>{{$key->Topic}}</td>
                             <td>{!! $key->Remarks !!}</td>
                             <td>
-                                <a href="#" class="fa fa-pencil" title="Edit"></a>
-                                <a href="#" class="fa fa-trash-o text-danger" title="delete"></a>
+                                <a href="{{route('record.print')}}" class="fa fa-print" title="Edit"></a>
+                                <a href="{{route('this.delete',[$key->id])}}" class="fa fa-trash-o text-danger" title="delete"></a>
                                 <a href="{{route('records.show',[$key->id])}}" class="fa fa-eye text-success" title="View"></a>
                             </td>
                         </tr>

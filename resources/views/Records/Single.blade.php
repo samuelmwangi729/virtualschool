@@ -17,7 +17,7 @@
               <tr>
                 <td>{{$record->Date}}</td>
                 <td>{{$record->Week}}</td>
-                <td>{{$record->Suject}}</td>
+                <td>{{$record->Subject}}</td>
                 <td>{{$record->Lesson}}</td>
                 <td>{{$record->Topic}}</td>
                 <td>{!! $record->Reference !!}</td>

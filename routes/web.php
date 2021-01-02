@@ -20,7 +20,32 @@ Route::group(['middleware' => ['auth','suspended']], function () {
         'uses'=>'QuestionsController@file',
         'as'=>'files.file'
     ]);
+    Route::post('/Print',[
+        'uses'=>'RecordsController@Printer',
+        'as'=>'subject.choose'
+    ]);
+    Route::get('/Record/Delete/{id}',[
+        'uses'=>'RecordsController@destroy',
+        'as'=>'this.delete'
+    ]);
+    Route::get('/Lessons/all',[
+        'uses'=>'LessonsController@all',
+        'as'=>'lessons.all'
+    ]);
+    Route::get('/Lessons/Delete/{id}',[
+        'uses'=>'LessonsController@destroy',
+        'as'=>'lessons.delete'
+    ]);
+    Route::get('/Lessons/Print/{id}',[
+        'uses'=>'LessonsController@print',
+        'as'=>'lesson.print'
+    ]);
+    Route::post('/Lessons/Update/{id}',[
+        'uses'=>'LessonsController@update',
+        'as'=>'lessons.updates'
+    ]);
     Route::resource('records','RecordsController');
+    Route::get('record/Print','RecordsController@Print')->name('record.print');
     Route::resource('lessons','LessonsController');
     Route::resource('schemes','SchemesController');
     Route::get('/Subjects/Manage', 'SubjectsController@index')->name('subject.home');

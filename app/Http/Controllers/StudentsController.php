@@ -29,7 +29,7 @@ class StudentsController extends Controller
         return view('Students.add');
     }
 
-    //to generate the pdf using mpdf 
+    //to generate the pdf using mpdf
     public function print(){
         $fileName="Students.pdf";
         $mpdf=new \Mpdf\Mpdf([

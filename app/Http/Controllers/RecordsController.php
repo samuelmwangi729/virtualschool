@@ -99,7 +99,56 @@ class RecordsController extends Controller
     {
         //
     }
+    public function Print(){
+        return View('Records.Subject')
+        ->with('Classes',Classes::all())
+        ->with('Subjects',Subject::all());
+    }
+    protected function Printer(Request $request){
+        $rule=[
+            'Subject'=>'required',
+            'Class'=>'required'
 
+    ];
+        $this->validate($request,$rule);
+        $subject=$request->Subject;
+        $Owner=Auth::user()->uid;
+        $Record=Record::where([
+            ['Owner','=',$Owner],
+            ['Subject','=',$subject],
+            ['Class','=',$request->Class],
+        ])->get();
+        if(count($Record)==0){
+            // Session::flash('error',);
+            $request->session()->flash('error', 'No records Available Under Sub Category');
+            return back();
+        }
+        $fileName=Auth::user()->schoolName." Records Of Work Covered.pdf";
+        $mpdf=new \Mpdf\Mpdf([
+            'margin_left'=>10,
+            'margin_top'=>21,
+            'margin_right'=>10,
+            'margin_bottom'=>50,
+            'margin_header'=>10,
+            'margin_footer'=>10,
+        ]);
+        $mpdf->SetHeader(Auth::user()->schoolName.'| <h2>Records of Work Covered '.date('Y').'</h2> |   {PAGENO}');
+        $mpdf->AddPage('L');
+        $html= \View::make('Records.Print')
+        ->with('Class',$request->Class)
+        ->with('Records',$Record)
+        ->with('Subject',$subject);
+        $html=$html->render();
+        // $mpdf->Image('/img/logo.jpg',90,210);
+        $mpdf->SetWatermarkText(config('app.name'));
+        $mpdf->watermark_font = 'DejaVuSansCondensed';
+        $mpdf->SetFooter('<i>Software designed and developed by Samuel Mwangi, Tel: 0713529784</i>');
+        // $stylesheet=file_get_contents(url('/css/bootstrap.css'));
+        // $mpdf->WriteHTML($stylesheet,1);
+
+        $mpdf->WriteHTML($html);
+        $mpdf->Output($fileName,'I');
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -118,8 +167,14 @@ class RecordsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
-        return "hehe";
+        $record=Record::findOrFail($id);
+        if($record){
+            $record->delete();
+            $value="Record Successfully Deleted";
+            $request->session()->flash('error', $value);
+            return back();
+        }
     }
 }
